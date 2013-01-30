@@ -1,4 +1,5 @@
-FTMS.opensdf
-FTMS.v11.suo
-FTMS.vcxproj.filters
-FTMS.vcxproj.user
+/FTMS.opensdf
+/FTMS.v11.suo
+/*.sdf
+/FTMS.vcxproj.user
+/FTMS.vcxproj.filters
