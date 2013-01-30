@@ -19,6 +19,7 @@
     <None Include="TimeFunctions.ino" />
     <None Include="ScreenFunctions.ino" />
     <None Include="Director.ino" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h">

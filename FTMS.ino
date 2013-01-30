@@ -6,6 +6,7 @@
 #include <EthernetUdp.h>
 #include <Metro.h>
 #include <RTClib.h> 
+#include <SD.h>
 
 // Enter a MAC address for your controller below.
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
@@ -16,6 +17,14 @@ void setup()
 {
 	Director direct = Director();
 	direct.test = 2;
+	// make sure that the default chip select pin is set to
+	// output, even if you don't use it:
+	pinMode(10, OUTPUT);
+	if (!SD.begin(4)) {
+		// Serial.println("Card failed, or not present");
+		// don't do anything more:
+		return;
+	  }
 	if (Ethernet.begin(mac) == 0) {
 		// no point in carrying on, so do nothing forevermore:
 		for(;;)
