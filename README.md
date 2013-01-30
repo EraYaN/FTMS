@@ -5,12 +5,12 @@ FTMS (FishTankManagementServices) monitors and controls all things in and around
 Connection schematic will follow.
 
 It uses the following libraries:
-SPI
-Time
-Ethernet
-Wire
-EthernetUdp
-Metro
-RTCLib
-SD
-LCD12864
+- SPI
+- Time
+- Ethernet
+- Wire
+- EthernetUdp
+- Metro
+- RTCLib
+- SD
+- LCD12864
