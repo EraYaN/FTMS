@@ -14,4 +14,11 @@ It uses the following libraries:
 - RTCLib
 - SD
 - LCD12864RSPI
+
+or
+
 - gLCDv3
+
+or
+
+- u8glib
