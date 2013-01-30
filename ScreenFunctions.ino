@@ -109,5 +109,6 @@ PIN19 ----LED+ ，backlight ＋，5V
 PIN20 ----LED- ，backlight －，GND
 
 */
-#include <LCD12864.h>
+#include <LCD12864RSPI.h>
+
 

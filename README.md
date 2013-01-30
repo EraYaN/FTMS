@@ -13,4 +13,5 @@ It uses the following libraries:
 - Metro
 - RTCLib
 - SD
-- LCD12864
+- LCD12864RSPI
+- gLCDv3
