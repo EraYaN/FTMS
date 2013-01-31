@@ -109,6 +109,35 @@ PIN19 ----LED+ ，backlight ＋，5V
 PIN20 ----LED- ，backlight －，GND
 
 */
-#include <LCD12864RSPI.h>
 
+/*
 
+Extra Source:
+the connection on Display--UNO are: BLK/VSS--Ground, BLA/VDD/RS--Vcc, R/W--I/O 9, E--I/O 8,
+to change the I/O pins: 1)you change the I/O pins number in your code, 2) reconnect display with Arduino board accordingly.
+*/
+
+/*
+Extra Source:
+
+My pin config:
+LCD->Ardunio -> Used as
+Gnd -> Gnd -> Ground
+VCC -> 5V -> Power
+RS -> Pin 8 -> Chip Select (CS)
+R/W -> Pin 9 -> Serial Input (MOSI)
+E -> Pin 3 -> Serial Clock (SCK)
+PSB Gnd Pull low to enable SPI mode
+*/
+
+//#include <LCD12864RSPI.h>
+
+//or
+
+#include <U8glib.h>
+//U8GLIB_ST7920_128X64 u8g(3, 9, 8, U8G_PIN_NONE);
+// SPI Com: SCK = en = 3, MOSI = rw = 9, CS = di = 8
+//U8GLIB_ST7920_128X64 u8g(53, U8G_PIN_NONE)
+// HW SPI: http://arduino.cc/en/Reference/SPI MOSI = ICSP-4, MISO = ICSP-1, SCK = ICSP-3, SS = D53 = CS
+//U8GLIB_ST7920_128X64 u8g(d0, d1, d2, d3, d4, d5, d6, d7, en, cs1, cs2, di, rw [, reset])
+//8Bit

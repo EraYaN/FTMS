@@ -1,3 +1,5 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 /*Define shit here*/
 
 enum EventType {
@@ -13,12 +15,5 @@ struct ScheduledEvent{
 	unsigned long frequency;
 	char* name;
 };
-/// <summary>
-///	Class that will direct all actions of the arduino and store it status.
-/// </summary>
-class Director{
-	public:
-    Director();
-	int test;
 
-};
+#endif
