@@ -24,9 +24,12 @@ void init_Time(){
   while(timeStatus()== timeNotSet)   
      ; // wait until the time is set by the sync provider
 }
-//base time update function it requests internet time once every 100 times (should not be more than once every 4 seconds)
+//base time update function it requests internet time once every 288 times (should not be more than once every 4 seconds, is once a day now)
 time_t getTime(boolean forceNTP){
 	time_t t = 0;
+	if(!RTC.isrunning()){
+		needNTPrefreshin = 0;
+	}
 	if(needNTPrefreshin<=0||forceNTP){		
 		sendNTPpacket(timeServer); // send an NTP packet to a time server
 		// wait to see if a reply is available
@@ -44,7 +47,7 @@ time_t getTime(boolean forceNTP){
 				RTC.adjust(DateTime(t));
 			}
 		}
-		needNTPrefreshin = 100;
+		needNTPrefreshin = 288;
 	}
 	if(RTC.isrunning() && t==0 ){
 		t = RTC.now().unixtime();
@@ -57,7 +60,7 @@ time_t getTime(){
 	return getTime(false);
 }
 // send an NTP request to the time server at the given address 
-unsigned long sendNTPpacket(IPAddress& address)
+/*unsigned long*/ void sendNTPpacket(IPAddress& address)
 {
   // set all bytes in the buffer to 0
   memset(packetBuffer, 0, NTP_PACKET_SIZE); 

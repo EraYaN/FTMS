@@ -7,5 +7,5 @@
 /// <param name=""></param>
 Director::Director() {
   //init
-	test = 0;
+	
 }

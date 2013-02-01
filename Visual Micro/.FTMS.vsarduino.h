@@ -29,7 +29,7 @@ extern "C" void __cxa_pure_virtual() {}
 void init_Time();
 time_t getTime(boolean forceNTP);
 time_t getTime();
-unsigned long sendNTPpacket(IPAddress& address);
+void sendNTPpacket(IPAddress& address);
 time_t readNTPpacket();
 void doTimeWork();
 void timeChanged();

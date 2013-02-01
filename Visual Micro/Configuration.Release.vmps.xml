@@ -1,6 +1,6 @@
 <VisualMicro>
   <Program Name="FTMS" Ext=".ino" Location="F:\Users\Erwin\GitHub\FTMS">
-    <Compile IsCompiled="0" CompilerErrors="0" ConfigurationName="Debug" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\Erwin\AppData\Local\VMicro\Arduino\Builds\FTMS\mega2560" StopOnError="True" />
+    <Compile IsCompiled="0" CompilerErrors="0" ConfigurationName="Release" StopOnError="True" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\Erwin\AppData\Local\VMicro\Arduino\Builds\FTMS\mega2560" />
     <Platform Name="Arduino">
       <Board Name="mega2560" Description="Arduino Mega 2560 or Mega ADK" CoreFolder="F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" VariantFullPath="F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega" bootloader.extended_fuses="0xFD" bootloader.file="stk500boot_v2_mega2560.hex" bootloader.high_fuses="0xD8" bootloader.lock_bits="0x0F" bootloader.low_fuses="0xFF" bootloader.path="stk500v2" bootloader.unlock_bits="0x3F" build.core="arduino" build.f_cpu="16000000L" build.mcu="atmega2560" build.variant="mega" build.variant.vmresolved="F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega" name="Arduino Mega 2560 or Mega ADK" upload.maximum_size="258048" upload.protocol="wiring" upload.speed="115200" />
     </Platform>

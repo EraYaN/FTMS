@@ -4,9 +4,11 @@
 ///	Class that will direct all actions of the arduino and store it status.
 /// </summary>
 class Director{
-	public:
+	//Class discription
+public:
     Director();
-	int test;
+private:
+	//none
 
 };
 #endif

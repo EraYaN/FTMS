@@ -15,8 +15,8 @@ RTC_DS1307 RTC;
 
 void setup()
 {
-	Director direct = Director();
-	direct.test = 2;
+	//Director direct = Director();
+	
 	// make sure that the default chip select pin is set to
 	// output, even if you don't use it:
 	pinMode(10, OUTPUT);
