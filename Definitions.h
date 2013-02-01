@@ -13,7 +13,7 @@ struct Event{
 	unsigned int hour;
 	unsigned int minute;
 	unsigned long frequency;
-	DateTime lastExecution;
+	time_t lastExecution;
 	char* name;
 };
 

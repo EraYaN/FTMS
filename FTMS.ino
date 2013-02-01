@@ -2,6 +2,7 @@
 #include <Time.h> 
 #include <Ethernet.h>
 #include "Definitions.h"
+#include "Director.h"
 #include <Wire.h>
 #include <EthernetUdp.h>
 #include <Metro.h>
@@ -12,11 +13,11 @@
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 RTC_DS1307 RTC;
-Director direct();
+Director direct;
 
 void setup()
 {
-	
+	direct.Init();
 	// make sure that the default chip select pin is set to
 	// output, even if you don't use it:
 	pinMode(10, OUTPUT);

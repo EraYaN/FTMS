@@ -6,12 +6,13 @@
 class Director{
 	//Class discription
 public:
-    Director(unsigned int pid = 0);
+	Director();
+    Director(unsigned int pid);
 	void Init();
 	void Tick();
 	int doSpecialRoutine();
 private:
-	unsigned int progam_id;
+	unsigned int program_id;
 
 };
 #endif
