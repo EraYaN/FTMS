@@ -85,9 +85,17 @@
   <ItemGroup>
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Director.h" />
+    <ClInclude Include="Program.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.board.name="mega2560" arduino.board.desc="Arduino Mega 2560 or Mega ADK" arduino.board.property_bag="mega2560.name=Arduino Mega 2560 or Mega ADK&#xD;&#xA;mega2560.upload.protocol=wiring&#xD;&#xA;mega2560.upload.maximum_size=258048&#xD;&#xA;mega2560.upload.speed=115200&#xD;&#xA;mega2560.bootloader.low_fuses=0xFF&#xD;&#xA;mega2560.bootloader.high_fuses=0xD8&#xD;&#xA;mega2560.bootloader.extended_fuses=0xFD&#xD;&#xA;mega2560.bootloader.path=stk500v2&#xD;&#xA;mega2560.bootloader.file=stk500boot_v2_mega2560.hex&#xD;&#xA;mega2560.bootloader.unlock_bits=0x3F&#xD;&#xA;mega2560.bootloader.lock_bits=0x0F&#xD;&#xA;mega2560.build.mcu=atmega2560&#xD;&#xA;mega2560.build.f_cpu=16000000L&#xD;&#xA;mega2560.build.core=arduino&#xD;&#xA;mega2560.build.variant=mega&#xD;&#xA;" arduino.build.mcu="atmega2560" arduino.build.f_cpu="16000000L" arduino.build.core="arduino" arduino.upload.protocol="wiring" arduino.upload.speed="115200" arduino.upload.maximum_size="258048" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

@@ -7,12 +7,13 @@ enum EventType {
   Time,
   Random
 }; 
-struct ScheduledEvent{
+struct Event{
 	EventType type;
 	unsigned long interval;
 	unsigned int hour;
 	unsigned int minute;
 	unsigned long frequency;
+	DateTime lastExecution;
 	char* name;
 };
 

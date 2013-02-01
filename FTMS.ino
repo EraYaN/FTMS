@@ -12,10 +12,10 @@
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 RTC_DS1307 RTC;
+Director direct();
 
 void setup()
 {
-	//Director direct = Director();
 	
 	// make sure that the default chip select pin is set to
 	// output, even if you don't use it:
@@ -40,7 +40,5 @@ void setup()
 
 void loop()
 {
-	//Update Time
-	doTimeWork();
-
+	direct.Tick();
 }
