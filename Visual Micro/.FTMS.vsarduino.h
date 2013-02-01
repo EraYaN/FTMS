@@ -42,6 +42,7 @@ double getPhase(int Y, int M, int D);
 #include "F:\Users\Erwin\GitHub\FTMS\Definitions.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Director.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Director.ino"
+#include "F:\Users\Erwin\GitHub\FTMS\Pins.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Program.h"
 #include "F:\Users\Erwin\GitHub\FTMS\ScreenFunctions.ino"
 #include "F:\Users\Erwin\GitHub\FTMS\TimeFunctions.ino"

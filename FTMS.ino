@@ -3,25 +3,28 @@
 #include <Ethernet.h>
 #include "Definitions.h"
 #include "Director.h"
+#include "Pins.h"
 #include <Wire.h>
 #include <EthernetUdp.h>
 #include <Metro.h>
 #include <RTClib.h> 
 #include <SD.h>
+#include <dht.h>
 
 // Enter a MAC address for your controller below.
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 RTC_DS1307 RTC;
-Director direct;
+Director drctr;
 
 void setup()
 {
-	direct.Init();
+	drctr.Init();
 	// make sure that the default chip select pin is set to
 	// output, even if you don't use it:
-	pinMode(10, OUTPUT);
-	if (!SD.begin(4)) {
+	pinMode(SDCARD_SLAVESELECT_PIN_ORIG, OUTPUT);  // set the SS pin as an output (necessary!)
+	digitalWrite(SDCARD_SLAVESELECT_PIN_ORIG, HIGH);  // Disables W5100 chip?
+	if (!SD.begin(SDCARD_SLAVESELECT_PIN)) {
 		// Serial.println("Card failed, or not present");
 		// don't do anything more:
 		return;
@@ -41,5 +44,5 @@ void setup()
 
 void loop()
 {
-	direct.Tick();
+	drctr.StartProgram();
 }

@@ -26,7 +26,11 @@ void Director::Tick(){
 	//Update Time
 	doTimeWork();
 }
-int Director::doSpecialRoutine(){
+int Director::SpecialRoutine(){
 	//Pause all and execute task. Like calibrating the pH-probe.
 	return 0;
+}
+void Director::StartProgram(){
+	//start the program.
+
 }

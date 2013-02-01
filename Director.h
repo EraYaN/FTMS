@@ -10,7 +10,8 @@ public:
     Director(unsigned int pid);
 	void Init();
 	void Tick();
-	int doSpecialRoutine();
+	int SpecialRoutine();
+	void StartProgram();
 private:
 	unsigned int program_id;
 
