@@ -7,19 +7,24 @@
 ///	Constructor of the Director class.
 /// </summary>
 /// <param name="pid">ID of the program to run.</param>
-Director::Director(unsigned int pid) {
+Director::Director(unsigned int pid)
+	:s_DHT11("Huiskamer",DHT11,DHT11_PIN),
+	s_pHProbe()
+{
 	//contruct
-	program_id = pid;
+	program_id = pid;	
+
 }
 /// <summary>
 ///	Constructor of the Director class. Run default program.
 /// </summary>
-Director::Director() {
-	Director(0);
-}
+/*Director::Director() {
+Director(0);
+}*/
 void Director::Init() {
-  //contruct
-	
+	//contruct
+	s_pHProbe.Init();
+	s_DHT11.Init();
 }
 void Director::Tick(){
 	//runs every "loop()"
@@ -32,5 +37,16 @@ int Director::SpecialRoutine(){
 }
 void Director::StartProgram(){
 	//start the program.
+	int errCode = 0;
+	//update all sensor values
+	if(errCode=s_DHT11.updateValue()!=0) Serial.println("DHT11 update error"+errCode);
+	delay(100);
+	if(errCode=s_pHProbe.updateValue(s_DHT11.getTemperature())!=0) Serial.println("pHProbe update error"+errCode);
+	//
+	digitalClockDisplay();
+	//draw screen
+	frame(); //TODO hookup screen and uncomment this line
+	//delay(2000);
+	//s_pHProbe.Calibrate();
 
 }

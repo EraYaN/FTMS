@@ -1,6 +1,6 @@
 #include <Time.h> 
+#include <Timezone.h>
 #include <EthernetUdp.h>
-#include <Metro.h>
 #include <RTClib.h> 
 
 const int NTP_PACKET_SIZE= 48;
@@ -8,6 +8,9 @@ const unsigned long seventyYears = 2208988800UL;
 unsigned int localPort = 8888;
 int needNTPrefreshin = 0;
 time_t prevTime = 0;
+TimeChangeRule CEST = {"CEST", Last, Sun, Mar, 2, +120};  //UTC + 2 hours
+TimeChangeRule CET = {"CET", Last, Sun, Oct, 2, +60};   //UTC + 1 hours
+Timezone tz(CEST, CET);
 
 IPAddress timeServer(194, 109, 22, 18);//ntp.xs4all.nl (194.109.22.18)
 IPAddress timeServerBackup(194, 109, 20, 18);//ntp2.xs4all.nl (194.109.20.18)
@@ -17,8 +20,8 @@ byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing pack
 // A UDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
 
-void init_Time(){
-	Udp.begin(localPort);
+void initTime(){
+	//Udp.begin(localPort); //TODO ethernetshield?
 	 setSyncProvider(getTime);
 	 setSyncInterval(600);  
   while(timeStatus()== timeNotSet)   
@@ -26,6 +29,8 @@ void init_Time(){
 }
 //base time update function it requests internet time once every 288 times (should not be more than once every 4 seconds, is once a day now)
 time_t getTime(boolean forceNTP){
+	//TODO remove next line
+	return (time_t)1360450800;
 	time_t t = 0;
 	if(!RTC.isrunning()){
 		needNTPrefreshin = 0;
@@ -101,41 +106,92 @@ time_t readNTPpacket(){
 }
 
 void doTimeWork(){
-	if(now()!=prevTime){
+	/*if(now()!=prevTime){
 		timeChanged();
-	}
+	}*/
 }
 
-void timeChanged(){
+/*void timeChanged(){
 	//TODO: display change
 	//check events about to happen.
+}*/
+//time helper functions
+double getDayProgress(){
+	time_t t = lnow();
+	return (((double)hour(t)*3600UL+(double)minute(t)*60UL+(double)second(t))/86400UL);
 }
-// Adapted from Stephen R. Schmitt's Lunar phase computation program.
-// Originally written for the Zeno programming language.
-// http://home.att.net/~srschmitt/lunarphasecalc.html
-double normalize(double v) {           // normalize moon calculation between 0-1 (per unage)
-    v = v - floor(v);
-    if (v < 0)
-        v = v + 1;
-    v = fabs(v-0.5)/0.5;
-    return v;
+time_t lnow(){
+	return tz.toLocal(now());
 }
-double getPhase(int Y, int M, int D) {
-  double  IP;  
-  long YY, MM, K1, K2, K3, JD;
-  YY = Y - floor((12 - M) / 10);
-  MM = M + 9;
-  if(MM >= 12)
-    MM = MM - 12;
-  
-  K1 = floor(365.25 * (YY + 4712));
-  K2 = floor(30.6 * MM + 0.5);
-  K3 = floor(floor((YY / 100) + 49) * 0.75) - 38;
+time_t ltime(time_t t){
+	return tz.toLocal(t);
+}
+//local time function using now
+int lhour(){
+	return hour(lnow());
+}
+int lminute(){
+	return minute(lnow());
+}
+int lsecond(){
+	return second(lnow());
+}
+int lyear(){
+	return year(lnow());
+}
+int lmonth(){
+	return month(lnow());
+}
+int lday(){
+	return day(lnow());
+}
+int lweekday(){
+	return weekday(lnow());
+}
+//local time functions with a given time (UTC).
+int lhour(time_t t){
+	return hour(ltime(t));
+}
+int lminute(time_t t){
+	return minute(ltime(t));
+}
+int lsecond(time_t t){
+	return second(ltime(t));
+}
+int lyear(time_t t){
+	return year(ltime(t));
+}
+int lmonth(time_t t){
+	return month(ltime(t));
+}
+int lday(time_t t){
+	return day(ltime(t));
+}
+int lweekday(time_t t){
+	return weekday(ltime(t));
+}
+//debug functions
+void digitalClockDisplay(){
+  // digital clock display of the time
+time_t t = lnow();
+  Serial.print(hour(t));
+  printDigits(minute(t));
+  printDigits(second(t));
+  Serial.print(" ");
+  Serial.print(day(t));
+  Serial.print(" ");
+  Serial.print(month(t));
+  Serial.print(" ");
+  Serial.print(year(t));
+  Serial.print(" (");
+  Serial.print(getDayProgress(),6);
+  Serial.println(")");
+}
 
-  JD = K1 + K2 + D + 59;
-  if(JD > 2299160)
-    JD = JD -K3;
-  
-  IP = normalize((JD - 2451550.1) / 29.530588853);  
-  return IP;    
+void printDigits(int digits){
+  // utility function for digital clock display: prints preceding colon and leading 0
+  Serial.print(":");
+  if(digits < 10)
+    Serial.print('0');
+  Serial.print(digits);
 }

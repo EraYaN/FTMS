@@ -21,6 +21,9 @@
     <None Include="Director.ino" />
     <None Include="README.md" />
     <None Include=".gitignore" />
+    <None Include="Sensor.ino" />
+    <None Include="memfunctions.ino" />
+    <None Include="LightCurves.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h">
@@ -38,5 +41,18 @@
     <ClInclude Include="Pins.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorpHProbe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorDHT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SensorpHProbe.ino" />
+    <ClCompile Include="SensorDHT.ino" />
   </ItemGroup>
 </Project>

@@ -1,143 +1,166 @@
-/*
-Product parameters :
-
-1、Power Supply Voltage: VDD + 3.3 V ~ + 5.5 V (built-in booster circuit, without the negative pressure)
-
-2、The Controller: ST7920
-
-3、Dot Matrixr: 128（row) x 64 (line)
-
-4、Display Color: White on blue background.
-
-5、Visual Angle: 170 degrees
-
-6、LCD Type: STN
-
-7、Control Interface: eight or four bits for parallel and three bits for serial
-
-8、LED Backlighting: blue
-
-9、Software Function: the cursor show, the pictures to shift, the custom characters, the white display, sleep patterns, etc
-
-10、Logic Working Voltage (VDD) : 4.5 ~ 5.5 V
-
-11、Power Supply (GND) : 0 V
-
-12、Working Temperature: -20℃～70℃
-
-13、Storage Temperature: -30℃～80℃
-
-14、Module Size: 93 x 70 x 22 mm
-
-15、The Inspecting size: 73 x 39 mm
-
-Working in parallel mode, pins defined :
-
-PN1------ GND Power access－，General  connect  0V
-
-PIN2------Power access－，General  connect  5V
-
-PIN3------contrast control port , VDD and GDD connect with adjustable resistor , middle connect with 0V
-
-PIN4------RS  Instructions/data choice
-
-PIN5------R/W  Reading and writing choice
-
-PIN6------E，Signal Enable Port
-
-PIN7------D0，Data bits 0
-
-PIN8------D1，Data bits 1
-
-PIN9------D2，Data bits 2
-
-PIN10-----D3，Data bits 3
-
-PIN11-----D4，Data bits 4
-
-PIN12-----D5，Data bits 5
-
-PIN13-----D6，Data bits 6
-
-PIN14-----D7，Data bits 7
-
-PIN15-----PSB 　parallel：PSB=1，can connect VCC；serial：PSB=0，General  connect GND
-
-PIN16 ----NC
-
-PIN17-----~RST，Module reset
-
-PIN18 ----NC
-
-PIN19 ----LED+ ，backlighting ＋, 5V
-
-PIN20 ----LED- ，backlighting －, GND
-
-Work in serial mode, pins definition：
-
-PIN1------GND 　Power－，0V
-
-PIN2------Power＋，5V
-
-PIN3------contrast control
-
-PIN4------RS (CS)
-
-PIN5------R/W (SID)
-
-PIN6------E (SCK), Pluse
-
-PIN7------NC
-PIN8------NC
-PIN9------NC
-PIN10-----NC
-PIN11-----NC
-PIN12-----NC
-PIN13-----NC
-PIN14-----NC
-
-PIN15-----PSB 　Parallel：PSB=1，VCC；  serial ：PSB=0，GND
-
-PIN16 ----NC
-
-PIN17-----~RST
-
-PIN18 ----NC
-
-PIN19 ----LED+ ，backlight ＋，5V
-
-PIN20 ----LED- ，backlight －，GND
-
-*/
-
-/*
-
-Extra Source:
-the connection on Display--UNO are: BLK/VSS--Ground, BLA/VDD/RS--Vcc, R/W--I/O 9, E--I/O 8,
-to change the I/O pins: 1)you change the I/O pins number in your code, 2) reconnect display with Arduino board accordingly.
-*/
-
-/*
-Extra Source:
-
-My pin config:
-LCD->Ardunio -> Used as
-Gnd -> Gnd -> Ground
-VCC -> 5V -> Power
-RS -> Pin 8 -> Chip Select (CS)
-R/W -> Pin 9 -> Serial Input (MOSI)
-E -> Pin 3 -> Serial Clock (SCK)
-PSB Gnd Pull low to enable SPI mode
-*/
-
-//#include <LCD12864RSPI.h>
-
-//or
-
 #include <U8glib.h>
+/*#include <iterator>
+#include <string>*/
+#include <string.h>
+//#include <pnew.cpp>
+//#include <stdio.h>
 //U8GLIB_ST7920_128X64 u8g(3, 9, 8, U8G_PIN_NONE);
 // SPI Com: SCK = en = 3, MOSI = rw = 9, CS = di = 8
-//U8GLIB_ST7920_128X64 u8g(53, U8G_PIN_NONE)
+U8GLIB_ST7920_128X64 u8g(SPI_SCK, SPI_MOSI, SCREEN_SS, U8G_PIN_NONE);
 // HW SPI: http://arduino.cc/en/Reference/SPI MOSI = ICSP-4, MISO = ICSP-1, SCK = ICSP-3, SS = D53 = CS
 //U8GLIB_ST7920_128X64 u8g(d0, d1, d2, d3, d4, d5, d6, d7, en, cs1, cs2, di, rw [, reset])
 //8Bit
+const u8g_fntpgm_uint8_t *font_l = u8g_font_helvR10r;
+const u8g_fntpgm_uint8_t *font_m = u8g_font_helvR08r;
+const u8g_fntpgm_uint8_t *font_s = u8g_font_04b_03r;
+const u8g_fntpgm_uint8_t *font_xs = u8g_font_u8glib_4;
+int K = 0;
+int lastbytevalue=0;
+void fr(const char* text){
+	Serial.print("\t---- ");
+	int tmp = freeMemory();
+	Serial.print(tmp-lastbytevalue);
+	lastbytevalue=tmp;
+	Serial.print(" mutation, ");
+	Serial.print(lastbytevalue);
+	Serial.print(" bytes free RAM ->");
+	Serial.println(text);
+	Serial.flush();
+
+}
+void initScreen(){
+
+
+}
+char* substr(char* str, int start, int number){
+	int n = min(number,strlen(str)-start);
+	char* to = (char*) testMalloc(n+1);
+	strncpy(to,str+start,n);
+	to[n]='\0';
+	return to;
+}
+unsigned int getStrWidth(const char *s){
+	return u8g.getStrWidth(s);
+}
+int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &leftover, unsigned int (*gPW)(const char*)){
+	int screenwidth = u8g.getWidth();
+	int width = gPW(msg);
+	int unsigned numlines = 0;
+	//Serial.println("splitter");
+	bool done = false;
+	leftover = false;
+	int unsigned a = 0, b = 0;
+	int I = 0;
+	if(width>=screenwidth){
+		//Serial.println("splitter-if");
+		//Serial.flush();
+		char* workstr;
+		//Serial.println(strlen(msg)+1);
+		//Serial.flush();
+		//fr("malloc");
+		workstr = (char*)testMalloc(strlen(msg)+1);
+		//Serial.println("splitter-strcpy-1");
+		strcpy(workstr, msg);
+		//Serial.println("splitter-if-2");
+		while(!done&&I<100000){
+			//Serial.println("splitter-while-line");
+			while(width>=screenwidth){
+				//Serial.println("splitter-while-word");
+				a=0;
+				char* tmp = workstr;
+				char* space = strrchr(workstr,' ');
+				//Serial.println("splitter-while-word-2");
+				if(!space) { /*Serial.println("splitter-while-word-error");*/ done = true; leftover = true; break;}
+				a = (int)space-(int)workstr;
+				//Serial.println("splitter-while-word-3");
+				workstr = substr(tmp,0,a);       
+				testFree( tmp); 
+				//Serial.println("splitter-while-word-4");
+				width = gPW(workstr);
+				if(a>strlen(msg)||I>10000) { /*Serial.println("splitter-while-word-error-2");*/ break; };  
+				I++;  
+
+			}
+			b += a;
+			if(numlines>0) b++;
+			lines[numlines] = (char*)testMalloc(strlen(workstr)+1);
+			strcpy(lines[numlines],workstr);
+			numlines++;
+			testFree(workstr);
+			workstr = substr(msg,b+1,strlen(msg)-b-1);
+			width = gPW(workstr);
+			if(width<=screenwidth){
+				lines[numlines] = (char*)testMalloc(strlen(workstr)+1);
+				strcpy(lines[numlines],workstr);
+				numlines++;
+				done = true;
+				testFree(workstr);
+			}
+			if(numlines>=maxlines){
+				leftover = true;
+				break;
+			}
+		}
+	} 
+	else {
+		//Serial.println("splitter-if-short");
+		lines[numlines] = (char*)testMalloc(strlen(msg)+1);		
+		strcpy(lines[numlines],msg);
+		numlines++;
+	}
+	return numlines;
+}
+void draw(){
+	char* buff = (char*)testMalloc(100);
+	u8g.setColorIndex(1);	
+	u8g.setFont(font_m);
+	snprintf(buff,100,"PH: %0.2lf",drctr.s_pHProbe.getpH());
+	u8g.drawStr( 1,10, buff);
+	snprintf(buff,100,"T: %0.lf %cC",drctr.s_DHT11.getTemperature(),'\xb0');
+	u8g.drawStr( 1,20, buff);
+	snprintf(buff,100,"H: %0.lf %%",drctr.s_DHT11.getHumidity());
+	u8g.drawStr( 1,30, buff);	
+	u8g.setFont(u8g_font_5x7);
+	snprintf(buff,100,"fM: %0.1f%%, FR: %0.1f%%",(float)freeMemory()/(8*1024)*100,(float)FreeRam()/(8*1024)*100);
+	u8g.drawStr( 1,40, buff);	
+	testFree(buff);
+}
+int drawStatusMessage(char* msg){
+	u8g.setColorIndex(1);	
+	u8g.setFont(font_l);	
+	const int m = (u8g.getHeight())/u8g.getFontLineSpacing();
+	//Serial.println(++K);
+	char *output[m];
+	int lines;
+	int width;
+	int offsetX;
+	int offsetY;
+	bool leftover = false;   
+	//Serial.println("draw-init");
+	lines = splitInLines(msg,output,m,leftover,getStrWidth);
+	u8g.setColorIndex(1);	
+	u8g.setFont(font_l);
+	int textHeigth = lines*u8g.getFontLineSpacing();
+	//Serial.println("draw-drawing-for");
+	for(int j = 0; j<lines; j++){
+		width = getStrWidth(output[j]);
+		offsetX = max(0,((int)u8g.getWidth() - width)/2);
+		offsetY = max(0,(((int)(u8g.getHeight())-textHeigth)/2))+u8g.getFontLineSpacing()*(j+1);
+		u8g.drawStr( offsetX,offsetY, output[j]);
+		testFree(output[j]);
+	}
+}
+void frameStatusMessage(char* msg){	
+	//Serial.println("frame");
+	u8g.firstPage();
+	do{
+		//Serial.println("next-page");
+		drawStatusMessage(msg);
+	} while(u8g.nextPage());
+}
+void frame(){
+	u8g.firstPage();
+	do{
+		draw();
+	} while(u8g.nextPage());
+}
