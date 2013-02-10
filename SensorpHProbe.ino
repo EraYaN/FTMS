@@ -43,37 +43,40 @@ int SensorpHProbe::Calibrate(){
 	delay(5000);
 	frameStatusMessage("Going in continues modes..");
 	delay(1000);
-	frameStatusMessage("Waiting 1-2 minutes. (0 seconds)");
+	//TODO make the waiting into a loop and based on actual time.
+	frameStatusMessage("Waiting 2 minutes. (0 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (10 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (10 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (20 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (20 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (30 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (30 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (40 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (40 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (50 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (50 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (60 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (60 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (70 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (70 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (80 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (80 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (90 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (90 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (100 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (100 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (110 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (110 seconds)");
 	delay(10000);
-	frameStatusMessage("Waiting 1-2 minutes. (120 seconds)");
+	frameStatusMessage("Waiting 2 minutes. (120 seconds)");
 	delay(1000);
 	frameStatusMessage("Sending S command to pH stamp.");
 	delay(1000);
 	frameStatusMessage("Step two (ph4). etc");
+	//TODO Actually do a Serial.print("S\r")
 	delay(1000);
 	frameStatusMessage("Step three (ph10). etc");
+	//TODO Finish the other pieces of the calibration program.
 	delay(1000);
 	frameStatusMessage("Calibraton complete.");
 	delay(1000);
@@ -85,7 +88,7 @@ SensorpHProbe::~SensorpHProbe(void)
 	Serial3.end();
 }
 /*
-1. First place you pH probe in the yellow pH 7 calibration solution.
+1. First place you're pH probe in the yellow pH 7 calibration solution.
 2. Instruct the circuit to go into continues mode.
 3. Wait 1 to 2 minutes.
 4. TX the S command. Your pH Circuit is now calibrated for pH7.
@@ -101,5 +104,5 @@ Your pH stamp is now calibrated for pH4.
 13. Transmit the E command.
 14. The pH Circuit is now calibrated. The calibration data is stored in the EEPROM
 and will be retained even if the stamp is powered off.
-
+Source: Atlas Scientific
 */
