@@ -1,13 +1,23 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-# Custom for Visual Studio
+# Used for FTMS
+*.ino    diff=cpp
+*.pde    diff=cpp
+*.h      diff=cpp
+*.cpp    diff=cpp
+*.c      diff=cpp
 *.cs     diff=csharp
+*.php    diff=php
+*.htm    diff=html
+*.shtm   diff=html
+*.html   diff=html
 *.sln    merge=union
 *.csproj merge=union
 *.vbproj merge=union
 *.fsproj merge=union
 *.dbproj merge=union
+
 
 # Standard to msysgit
 *.doc	 diff=astextplain
