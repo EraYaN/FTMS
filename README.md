@@ -7,10 +7,10 @@ Connection schematic will follow.
 It uses the following libraries:
 - SPI
 - Time
+- Timezone
 - Ethernet
 - Wire
 - EthernetUdp
-- Metro
 - RTCLib
 - SD
 - LCD12864RSPI or gLCDv3 or u8glib
