@@ -2,22 +2,23 @@
 * text=auto
 
 # Used for FTMS
-*.ino    diff=cpp
-*.pde    diff=cpp
-*.h      diff=cpp
-*.cpp    diff=cpp
-*.c      diff=cpp
-*.cs     diff=csharp
-*.php    diff=php
-*.htm    diff=html
-*.shtm   diff=html
-*.html   diff=html
-*.sln    merge=union
-*.csproj merge=union
-*.vbproj merge=union
-*.fsproj merge=union
-*.dbproj merge=union
-
+*.ino    diff=cpp text
+*.pde    diff=cpp text
+*.h      diff=cpp text
+*.cpp    diff=cpp text
+*.c      diff=cpp text
+*.cs     diff=csharp text
+*.php    diff=php text
+*.htm    diff=html text
+*.shtm   diff=html text
+*.html   diff=html text
+*.sln    merge=union text eol=crlf
+*.vcproj merge=union text eol=crlf
+*.csproj merge=union text eol=crlf
+*.vbproj merge=union text eol=crlf
+*.fsproj merge=union text eol=crlf
+*.dbproj merge=union text eol=crlf
+*.vcxproj merge=union text eol=crlf
 
 # Standard to msysgit
 *.doc	 diff=astextplain
