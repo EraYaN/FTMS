@@ -14,6 +14,7 @@ const u8g_fntpgm_uint8_t *font_l = u8g_font_helvR10r;
 const u8g_fntpgm_uint8_t *font_m = u8g_font_helvR08r;
 const u8g_fntpgm_uint8_t *font_s = u8g_font_04b_03r;
 const u8g_fntpgm_uint8_t *font_xs = u8g_font_u8glib_4;
+
 int K = 0;
 int lastbytevalue=0;
 void fr(const char* text){

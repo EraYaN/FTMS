@@ -4,19 +4,10 @@
 /*Define shit here*/
 
 enum EventType {
-  Interval,
-  Time,
-  Random
+  EventInterval,
+  EventTime,
+  EventRandom
 }; 
-struct Event{
-	EventType type;
-	unsigned long interval;
-	unsigned int hour;
-	unsigned int minute;
-	unsigned long frequency;
-	time_t lastExecution;
-	char* name;
-};
 enum SensorType{
 	Unknown,
 	DHT11,

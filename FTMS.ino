@@ -9,7 +9,6 @@
 #include <RTClib.h> 
 #include <SD.h>
 #include <dht.h>
-//#include <Arduino.h>
 #include "Pins.h"
 #include "Sensor.h"
 #include <OneWire.h>

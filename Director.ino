@@ -13,7 +13,7 @@ Director::Director(unsigned int pid)
 {
 	//contruct
 	program_id = pid;	
-
+	events = {new Event("Test", EventTime, 0.5 /*noon*/, 28, HIGH)};
 }
 /// <summary>
 ///	Constructor of the Director class. Run default program.
