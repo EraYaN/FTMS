@@ -5,3 +5,5 @@
 *.suo
 /FTMS.v11.suo
 *.vcxproj[0-9]
+[Dd]ebug/
+[Rr]elease/
