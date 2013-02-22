@@ -46,7 +46,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\erwin\Documents\Arduino\libraries\Time;\\SERVER\erwin\Documents\Arduino\libraries\Time\utility;F:\Program Files (x86)\Arduino\libraries\Ethernet;F:\Program Files (x86)\Arduino\libraries\Ethernet\utility;F:\Program Files (x86)\Arduino\libraries\Wire;F:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\erwin\Documents\Arduino\libraries\Metro;\\SERVER\erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\erwin\Documents\Arduino\libraries\RTClib;\\SERVER\erwin\Documents\Arduino\libraries\RTClib\utility;F:\Program Files (x86)\Arduino\libraries\SD;F:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib\utility;\\SERVER\erwin\Documents\Arduino\libraries\OneWire;\\SERVER\erwin\Documents\Arduino\libraries\OneWire\utility;\\SERVER\erwin\Documents\Arduino\libraries\dallas-temperature-control;\\SERVER\erwin\Documents\Arduino\libraries\dallas-temperature-control\utility;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree\utility;\\SERVER\erwin\Documents\Arduino\libraries\U8glib;\\SERVER\erwin\Documents\Arduino\libraries\U8glib\utility;\\SERVER\erwin\Documents\Arduino\libraries\Timezone;\\SERVER\erwin\Documents\Arduino\libraries\Timezone\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\erwin\Documents\Arduino\libraries\Time;\\SERVER\erwin\Documents\Arduino\libraries\Time\utility;F:\Program Files (x86)\Arduino\libraries\Ethernet;F:\Program Files (x86)\Arduino\libraries\Ethernet\utility;F:\Program Files (x86)\Arduino\libraries\Wire;F:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\erwin\Documents\Arduino\libraries\Metro;\\SERVER\erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\erwin\Documents\Arduino\libraries\RTClib;\\SERVER\erwin\Documents\Arduino\libraries\RTClib\utility;F:\Program Files (x86)\Arduino\libraries\SD;F:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib\utility;\\SERVER\erwin\Documents\Arduino\libraries\OneWire;\\SERVER\erwin\Documents\Arduino\libraries\OneWire\utility;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature\utility;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree\utility;\\SERVER\erwin\Documents\Arduino\libraries\U8glib;\\SERVER\erwin\Documents\Arduino\libraries\U8glib\utility;\\SERVER\erwin\Documents\Arduino\libraries\Timezone;\\SERVER\erwin\Documents\Arduino\libraries\Timezone\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>F:\Users\Erwin\GitHub\FTMS\Visual Micro\.FTMS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -64,7 +64,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\erwin\Documents\Arduino\libraries\Time;\\SERVER\erwin\Documents\Arduino\libraries\Time\utility;F:\Program Files (x86)\Arduino\libraries\Ethernet;F:\Program Files (x86)\Arduino\libraries\Ethernet\utility;F:\Program Files (x86)\Arduino\libraries\Wire;F:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\erwin\Documents\Arduino\libraries\Metro;\\SERVER\erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\erwin\Documents\Arduino\libraries\RTClib;\\SERVER\erwin\Documents\Arduino\libraries\RTClib\utility;F:\Program Files (x86)\Arduino\libraries\SD;F:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\erwin\Documents\Arduino\libraries\U8glib;\\SERVER\erwin\Documents\Arduino\libraries\U8glib\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\erwin\Documents\Arduino\libraries\Time;\\SERVER\erwin\Documents\Arduino\libraries\Time\utility;F:\Program Files (x86)\Arduino\libraries\Ethernet;F:\Program Files (x86)\Arduino\libraries\Ethernet\utility;F:\Program Files (x86)\Arduino\libraries\Wire;F:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\erwin\Documents\Arduino\libraries\Metro;\\SERVER\erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\erwin\Documents\Arduino\libraries\RTClib;\\SERVER\erwin\Documents\Arduino\libraries\RTClib\utility;F:\Program Files (x86)\Arduino\libraries\SD;F:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib\utility;\\SERVER\erwin\Documents\Arduino\libraries\OneWire;\\SERVER\erwin\Documents\Arduino\libraries\OneWire\utility;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature\utility;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree\utility;\\SERVER\erwin\Documents\Arduino\libraries\U8glib;\\SERVER\erwin\Documents\Arduino\libraries\U8glib\utility;\\SERVER\erwin\Documents\Arduino\libraries\Timezone;\\SERVER\erwin\Documents\Arduino\libraries\Timezone\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>F:\Users\Erwin\GitHub\FTMS\Visual Micro\.FTMS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -79,6 +79,9 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="Director.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="EthernetFunctions.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="LightCurves.ino">
@@ -104,6 +107,7 @@
   <ItemGroup>
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Director.h" />
+    <ClInclude Include="EthernetFunctions.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="SensorDHT.h" />
@@ -113,7 +117,9 @@
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Event.ino" />
+    <ClCompile Include="Event.ino">
+      <FileType>CppCode</FileType>
+    </ClCompile>
     <ClCompile Include="SensorDHT.ino">
       <FileType>CppCode</FileType>
     </ClCompile>
@@ -126,7 +132,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties arduino.board.name="mega2560" arduino.board.desc="Arduino Mega 2560 or Mega ADK" arduino.board.property_bag="mega2560.name=Arduino Mega 2560 or Mega ADK&#xD;&#xA;mega2560.upload.protocol=wiring&#xD;&#xA;mega2560.upload.maximum_size=258048&#xD;&#xA;mega2560.upload.speed=115200&#xD;&#xA;mega2560.bootloader.low_fuses=0xFF&#xD;&#xA;mega2560.bootloader.high_fuses=0xD8&#xD;&#xA;mega2560.bootloader.extended_fuses=0xFD&#xD;&#xA;mega2560.bootloader.path=stk500v2&#xD;&#xA;mega2560.bootloader.file=stk500boot_v2_mega2560.hex&#xD;&#xA;mega2560.bootloader.unlock_bits=0x3F&#xD;&#xA;mega2560.bootloader.lock_bits=0x0F&#xD;&#xA;mega2560.build.mcu=atmega2560&#xD;&#xA;mega2560.build.f_cpu=16000000L&#xD;&#xA;mega2560.build.core=arduino&#xD;&#xA;mega2560.build.variant=mega&#xD;&#xA;" arduino.build.mcu="atmega2560" arduino.build.f_cpu="16000000L" arduino.build.core="arduino" arduino.upload.protocol="wiring" arduino.upload.speed="115200" arduino.upload.maximum_size="258048" arduino.upload.port="COM4" />
+      <UserProperties arduino.board.name="mega2560" arduino.board.desc="Arduino Mega 2560 or Mega ADK" arduino.board.property_bag="mega2560.name=Arduino Mega 2560 or Mega ADK&#xD;&#xA;mega2560.upload.protocol=wiring&#xD;&#xA;mega2560.upload.maximum_size=258048&#xD;&#xA;mega2560.upload.speed=115200&#xD;&#xA;mega2560.bootloader.low_fuses=0xFF&#xD;&#xA;mega2560.bootloader.high_fuses=0xD8&#xD;&#xA;mega2560.bootloader.extended_fuses=0xFD&#xD;&#xA;mega2560.bootloader.path=stk500v2&#xD;&#xA;mega2560.bootloader.file=stk500boot_v2_mega2560.hex&#xD;&#xA;mega2560.bootloader.unlock_bits=0x3F&#xD;&#xA;mega2560.bootloader.lock_bits=0x0F&#xD;&#xA;mega2560.build.mcu=atmega2560&#xD;&#xA;mega2560.build.f_cpu=16000000L&#xD;&#xA;mega2560.build.core=arduino&#xD;&#xA;mega2560.build.variant=mega&#xD;&#xA;" arduino.build.mcu="atmega2560" arduino.build.f_cpu="16000000L" arduino.build.core="arduino" arduino.upload.protocol="wiring" arduino.upload.speed="115200" arduino.upload.maximum_size="258048" arduino.upload.port="COM3" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

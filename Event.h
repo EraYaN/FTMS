@@ -15,6 +15,7 @@ class Event
 public:
 	char* getName();
 	int execute();
+	Event(void);
 	Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue);
 	Event(char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)());
 	~Event(void);

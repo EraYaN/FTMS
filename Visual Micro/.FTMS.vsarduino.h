@@ -26,6 +26,8 @@ extern "C" void __cxa_pure_virtual() {}
 
 //already defined in arduno.h
 //already defined in arduno.h
+void initEthernet();
+void checkForHTTPConnections();
 extern int getMoonlightStrength(double prog);
 extern int getSunlightStrength(double prog);
 double increase(double prog, double span, double time, double min, double max);
@@ -74,6 +76,8 @@ extern void testFree(void *block);
 #include "F:\Users\Erwin\GitHub\FTMS\Definitions.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Director.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Director.ino"
+#include "F:\Users\Erwin\GitHub\FTMS\EthernetFunctions.h"
+#include "F:\Users\Erwin\GitHub\FTMS\EthernetFunctions.ino"
 #include "F:\Users\Erwin\GitHub\FTMS\Event.h"
 #include "F:\Users\Erwin\GitHub\FTMS\Event.ino"
 #include "F:\Users\Erwin\GitHub\FTMS\LightCurves.ino"

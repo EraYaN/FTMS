@@ -21,7 +21,9 @@
 
 // Enter a MAC address for your controller below.
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
-//byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+IPAddress ip(192,168,178, 3);
+EthernetServer server(80);
 RTC_DS1307 RTC;
 Director drctr(0);
 dht DHT;
@@ -36,15 +38,13 @@ void setup()
 	// output, even if you don't use it:
 	pinMode(SDCARD_SLAVESELECT_PIN_ORIG, OUTPUT);  // set the SS pin as an output (necessary!)
 	digitalWrite(SDCARD_SLAVESELECT_PIN_ORIG, HIGH);  // Disables W5100 chip?
-	/*if (!SD.begin(SDCARD_SLAVESELECT_PIN)) {
-	Serial.println("Card failed, or not present");
-	//don't do anything more:
-	return;
-	}*/
-	/*if (Ethernet.begin(mac) == 0) {
-	// no point in carrying on, so do nothing forevermore:
-	Serial.println("Ethernet shield failed or not present.");
-	}*/
+	if (!SD.begin(SDCARD_SLAVESELECT_PIN)) {
+		Serial.println("Card failed, or not present");
+		//don't do anything more:
+		return;
+	}
+	Ethernet.begin(mac,ip);
+	initEthernet();
 	initTime();
 	//Wire.begin();
 	/*Serial.print("RTC response: ");

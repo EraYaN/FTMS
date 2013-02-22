@@ -24,6 +24,7 @@
     <None Include="Sensor.ino" />
     <None Include="memfunctions.ino" />
     <None Include="LightCurves.ino" />
+    <None Include="EthernetFunctions.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h">
@@ -51,6 +52,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EthernetFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

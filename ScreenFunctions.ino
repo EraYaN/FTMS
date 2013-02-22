@@ -6,7 +6,7 @@
 //#include <stdio.h>
 //U8GLIB_ST7920_128X64 u8g(3, 9, 8, U8G_PIN_NONE);
 // SPI Com: SCK = en = 3, MOSI = rw = 9, CS = di = 8
-U8GLIB_ST7920_128X64 u8g(SPI_SCK, SPI_MOSI, SCREEN_SS, U8G_PIN_NONE);
+U8GLIB_ST7920_128X64 u8g(SCREEN_SCK, SCREEN_MOSI, SCREEN_SS, U8G_PIN_NONE);
 // HW SPI: http://arduino.cc/en/Reference/SPI MOSI = ICSP-4, MISO = ICSP-1, SCK = ICSP-3, SS = D53 = CS
 //U8GLIB_ST7920_128X64 u8g(d0, d1, d2, d3, d4, d5, d6, d7, en, cs1, cs2, di, rw [, reset])
 //8Bit

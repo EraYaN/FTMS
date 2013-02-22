@@ -1,7 +1,9 @@
 #include "Event.h"
 #include "Definitions.h"
 
-
+Event::Event(){
+	//nothing
+}
 Event::Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue)
 {
 	name = _name;
@@ -44,6 +46,6 @@ Event::~Event(void)
 
 int Event::execute(){
 	if(simple){
-
+		
 	}
 }

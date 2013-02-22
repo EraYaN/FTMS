@@ -13,7 +13,7 @@ Director::Director(unsigned int pid)
 {
 	//contruct
 	program_id = pid;	
-	events = {new Event("Test", EventTime, 0.5 /*noon*/, 28, HIGH)};
+	//events = {new Event("Test", EventTime, 0.5 /*noon*/, 28, HIGH)};
 }
 /// <summary>
 ///	Constructor of the Director class. Run default program.
@@ -46,6 +46,7 @@ void Director::StartProgram(){
 	digitalClockDisplay();
 	//draw screen
 	frame(); //TODO hookup screen and uncomment this line
+	checkForHTTPConnections(); //check if any client has connected and respond.
 	//delay(2000);
 	//s_pHProbe.Calibrate();
 
