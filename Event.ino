@@ -1,5 +1,6 @@
 #include "Event.h"
 #include "Definitions.h"
+#include "TimeFunctions.h"
 
 Event::Event(){
 	//nothing
@@ -46,6 +47,34 @@ Event::~Event(void)
 
 int Event::execute(){
 	if(simple){
-		
+		analogWrite(pin,pinValue);
+		lastExecution = now();
+	} else {
+		nonSimpleExecute();
+		lastExecution = now();
+	}
+}
+
+int Event::check(){
+	switch(type){
+		case EventTime:
+			//time = _occurDouble;//TODO
+			if(time>getDayProgress()){
+				execute();
+			}
+		break;
+		case EventInterval:
+			if(interval>(now()-lastExecution)){
+				execute();
+			}
+			//interval = _occurDouble;//TODO
+		break;
+		case EventRandom:
+			double per = 1/frequency;
+			if(){
+				execute();
+			}
+			//frequency = _occurDouble;//TODO
+		break;	
 	}
 }

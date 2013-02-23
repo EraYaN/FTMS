@@ -1,11 +1,14 @@
+#ifndef EVENT_H
+#define EVENT_H
 #include "Definitions.h"
+#include "TimeFunctions.h"
 #pragma once
 class Event
 {
 	EventType type;
-	double interval; //in day progress..
+	double interval; //in seconds..
 	double time; //in day progress..
-	double frequency; //in day progress..
+	double frequency; //per day..
 	unsigned int pin;
 	bool simple;
 	byte pinValue;
@@ -15,9 +18,11 @@ class Event
 public:
 	char* getName();
 	int execute();
+	int check();
 	Event(void);
 	Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue);
 	Event(char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)());
 	~Event(void);
 };
 
+#endif

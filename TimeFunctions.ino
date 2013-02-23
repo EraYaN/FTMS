@@ -1,19 +1,10 @@
-#include <Time.h> 
-#include <Timezone.h>
-#include <EthernetUdp.h>
-#include <RTClib.h> 
+#include "TimeFunctions.h"
 
 const int NTP_PACKET_SIZE= 48;
 const unsigned long seventyYears = 2208988800UL; 
 unsigned int localPort = 8888;
 int needNTPrefreshin = 0;
 time_t prevTime = 0;
-TimeChangeRule CEST = {"CEST", Last, Sun, Mar, 2, +120};  //UTC + 2 hours
-TimeChangeRule CET = {"CET", Last, Sun, Oct, 2, +60};   //UTC + 1 hours
-Timezone tz(CEST, CET);
-
-IPAddress timeServer(194, 109, 22, 18);//ntp.xs4all.nl (194.109.22.18)
-IPAddress timeServerBackup(194, 109, 20, 18);//ntp2.xs4all.nl (194.109.20.18)
 
 byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets 
 
@@ -65,7 +56,7 @@ time_t getTime(){
 	return getTime(false);
 }
 // send an NTP request to the time server at the given address 
-/*unsigned long*/ void sendNTPpacket(IPAddress& address)
+void sendNTPpacket(IPAddress& address)
 {
   // set all bytes in the buffer to 0
   memset(packetBuffer, 0, NTP_PACKET_SIZE); 
@@ -105,11 +96,11 @@ time_t readNTPpacket(){
 	return (time_t)epoch; 
 }
 
-void doTimeWork(){
+/*void doTimeWork(){
 	/*if(now()!=prevTime){
 		timeChanged();
-	}*/
-}
+	}
+}*/
 
 /*void timeChanged(){
 	//TODO: display change

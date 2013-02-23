@@ -57,6 +57,9 @@
     <ClInclude Include="EthernetFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TimeFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SensorpHProbe.ino" />
