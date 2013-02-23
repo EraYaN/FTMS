@@ -13,5 +13,5 @@ It uses the following libraries:
 - EthernetUdp
 - RTCLib
 - SD
-- LCD12864RSPI or gLCDv3 or u8glib
+- u8glib
 - DHTLib
