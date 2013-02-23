@@ -77,11 +77,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
+    <None Include="Configuration.ino">
+      <FileType>CppCode</FileType>
+    </None>
     <None Include="Director.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="EthernetFunctions.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="Events.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="LightCurves.ino">
@@ -90,7 +95,6 @@
     <None Include="memfunctions.ino">
       <FileType>CppCode</FileType>
     </None>
-    <None Include="README.md" />
     <None Include="Sensor.ino">
       <FileType>CppCode</FileType>
     </None>
@@ -105,10 +109,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="EthernetFunctions.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="SensorDHT.h" />
     <ClInclude Include="SensorpHProbe.h" />

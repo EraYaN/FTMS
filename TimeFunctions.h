@@ -1,6 +1,9 @@
 #ifndef TIMEFUNCTIONS_H
 #define TIMEFUNCTIONS_H
-#include <Time.h> 
+#define SECONDS_IN_DAY = 86400UL
+#define SECONDS_IN_HOUR = 3600UL
+#define MAX_DIFF_RANDOM_EVENTS = 1.5;
+#include <Time.h>
 #include <Timezone.h>
 #include <EthernetUdp.h>
 #include <RTClib.h> 

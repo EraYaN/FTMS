@@ -70,8 +70,8 @@ int Event::check(){
 			//interval = _occurDouble;//TODO
 		break;
 		case EventRandom:
-			double per = 1/frequency;
-			if(){
+			double per = (1/frequency)*SECONDS_IN_DAY;
+			if((now()-lastExecution)>random(round(per*SECONDS_IN_DAY),round(per*SECONDS_IN_DAY*MAX_DIFF_RANDOM_EVENTS))){
 				execute();
 			}
 			//frequency = _occurDouble;//TODO

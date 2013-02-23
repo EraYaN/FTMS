@@ -5,10 +5,8 @@
 #pragma once
 class Event
 {
-	EventType type;
-	double interval; //in seconds..
-	double time; //in day progress..
-	double frequency; //per day..
+	
+	
 	unsigned int pin;
 	bool simple;
 	byte pinValue;
@@ -19,6 +17,10 @@ public:
 	char* getName();
 	int execute();
 	int check();
+	EventType type;
+	double interval; //in seconds..
+	double time; //in day progress..
+	double frequency; //per day.. (max)
 	Event(void);
 	Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue);
 	Event(char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)());

@@ -29,7 +29,7 @@ void Director::Init() {
 void Director::Tick(){
 	//runs every "loop()"
 	//Update Time
-	doTimeWork();
+	//doTimeWork();
 }
 int Director::SpecialRoutine(){
 	//Pause all and execute task. Like calibrating the pH-probe.

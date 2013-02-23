@@ -66,6 +66,6 @@ void loop()
 	delay(1000);
 	drctr.StartProgram();	
 
-	Serial.println(F("Program done waiting 5 seconds before restart."));
-	delay(5000);
+	Serial.println(F("Program done."));
+	//delay(5000);
 }

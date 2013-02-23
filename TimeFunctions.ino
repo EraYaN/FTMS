@@ -109,7 +109,7 @@ time_t readNTPpacket(){
 //time helper functions
 double getDayProgress(){
 	time_t t = lnow();
-	return (((double)hour(t)*3600UL+(double)minute(t)*60UL+(double)second(t))/86400UL);
+	return (((double)hour(t)*SECONDS_IN_HOUR+(double)minute(t)*60UL+(double)second(t))/SECONDS_IN_DAY);
 }
 time_t lnow(){
 	return tz.toLocal(now());

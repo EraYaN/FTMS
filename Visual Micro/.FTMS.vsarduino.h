@@ -28,6 +28,9 @@ extern "C" void __cxa_pure_virtual() {}
 //already defined in arduno.h
 void initEthernet();
 void checkForHTTPConnections();
+void processEvents();
+void initEvents();
+void sortEvents();
 extern int getMoonlightStrength(double prog);
 extern int getSunlightStrength(double prog);
 double increase(double prog, double span, double time, double min, double max);
@@ -72,6 +75,8 @@ extern void testFree(void *block);
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\Configuration.h"
+#include "C:\Users\Erwin\GitHub\FTMS\Configuration.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\Definitions.h"
 #include "C:\Users\Erwin\GitHub\FTMS\Director.h"
 #include "C:\Users\Erwin\GitHub\FTMS\Director.ino"
@@ -79,6 +84,8 @@ extern void testFree(void *block);
 #include "C:\Users\Erwin\GitHub\FTMS\EthernetFunctions.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\Event.h"
 #include "C:\Users\Erwin\GitHub\FTMS\Event.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\Events.h"
+#include "C:\Users\Erwin\GitHub\FTMS\Events.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\LightCurves.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\Pins.h"
 #include "C:\Users\Erwin\GitHub\FTMS\Program.h"

@@ -46,7 +46,6 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\erwin\Documents\Arduino\libraries\Time;\\SERVER\erwin\Documents\Arduino\libraries\Time\utility;F:\Program Files (x86)\Arduino\libraries\Ethernet;F:\Program Files (x86)\Arduino\libraries\Ethernet\utility;F:\Program Files (x86)\Arduino\libraries\Wire;F:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\erwin\Documents\Arduino\libraries\Metro;\\SERVER\erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\erwin\Documents\Arduino\libraries\RTClib;\\SERVER\erwin\Documents\Arduino\libraries\RTClib\utility;F:\Program Files (x86)\Arduino\libraries\SD;F:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib;\\SERVER\erwin\Documents\Arduino\libraries\DHTLib\utility;\\SERVER\erwin\Documents\Arduino\libraries\OneWire;\\SERVER\erwin\Documents\Arduino\libraries\OneWire\utility;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature;\\SERVER\erwin\Documents\Arduino\libraries\DallasTemperature\utility;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree;\\SERVER\erwin\Documents\Arduino\libraries\MemoryFree\utility;\\SERVER\erwin\Documents\Arduino\libraries\U8glib;\\SERVER\erwin\Documents\Arduino\libraries\U8glib\utility;\\SERVER\erwin\Documents\Arduino\libraries\Timezone;\\SERVER\erwin\Documents\Arduino\libraries\Timezone\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>F:\Users\Erwin\GitHub\FTMS\Visual Micro\.FTMS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -64,11 +63,11 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;C:\Program Files (x86)\Arduino\libraries\SPI;C:\Program Files (x86)\Arduino\libraries\SPI\utility;C:\Program Files (x86)\Arduino\libraries\Ethernet;C:\Program Files (x86)\Arduino\libraries\Ethernet\utility;C:\Program Files (x86)\Arduino\libraries\Wire;C:\Program Files (x86)\Arduino\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries\SD;C:\Program Files (x86)\Arduino\libraries\SD\utility;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\Erwin\GitHub\FTMS\Visual Micro\.FTMS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>ARDUINO=103;__AVR_ATmega2560__;F_CPU=16000000L;__AVR__;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;C:\Program Files (x86)\Arduino\libraries\SPI;C:\Program Files (x86)\Arduino\libraries\SPI\utility;\\SERVER\Erwin\Documents\Arduino\libraries\Time;\\SERVER\Erwin\Documents\Arduino\libraries\Time\utility;C:\Program Files (x86)\Arduino\libraries\Ethernet;C:\Program Files (x86)\Arduino\libraries\Ethernet\utility;C:\Program Files (x86)\Arduino\libraries\Wire;C:\Program Files (x86)\Arduino\libraries\Wire\utility;\\SERVER\Erwin\Documents\Arduino\libraries\Metro;\\SERVER\Erwin\Documents\Arduino\libraries\Metro\utility;\\SERVER\Erwin\Documents\Arduino\libraries\RTClib;\\SERVER\Erwin\Documents\Arduino\libraries\RTClib\utility;C:\Program Files (x86)\Arduino\libraries\SD;C:\Program Files (x86)\Arduino\libraries\SD\utility;\\SERVER\Erwin\Documents\Arduino\libraries\DHTLib;\\SERVER\Erwin\Documents\Arduino\libraries\DHTLib\utility;\\SERVER\Erwin\Documents\Arduino\libraries\OneWire;\\SERVER\Erwin\Documents\Arduino\libraries\OneWire\utility;\\SERVER\Erwin\Documents\Arduino\libraries\DallasTemperature;\\SERVER\Erwin\Documents\Arduino\libraries\DallasTemperature\utility;\\SERVER\Erwin\Documents\Arduino\libraries\MemoryFree;\\SERVER\Erwin\Documents\Arduino\libraries\MemoryFree\utility;\\SERVER\Erwin\Documents\Arduino\libraries\U8glib;\\SERVER\Erwin\Documents\Arduino\libraries\U8glib\utility;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\;c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;c:\program files (x86)\arduino\hardware\tools\avr\avr\;c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -77,11 +76,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
+    <None Include="Configuration.ino">
+      <FileType>CppCode</FileType>
+    </None>
     <None Include="Director.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="EthernetFunctions.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="Events.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="LightCurves.ino">
@@ -90,7 +94,6 @@
     <None Include="memfunctions.ino">
       <FileType>CppCode</FileType>
     </None>
-    <None Include="README.md" />
     <None Include="Sensor.ino">
       <FileType>CppCode</FileType>
     </None>
@@ -105,10 +108,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="EthernetFunctions.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="SensorDHT.h" />
     <ClInclude Include="SensorpHProbe.h" />
