@@ -6,3 +6,4 @@
 *.vcxproj[0-9]
 *[Dd]ebug/
 *[Rr]elease/
+~AutoRecover.FTMS.*
