@@ -114,6 +114,10 @@ int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &lefto
 void draw(){
 	char* buff = (char*)safeMalloc(100);
 	u8g.setColorIndex(1);	
+	u8g.setFont(font_s);
+	time_t t = lnow();	
+	snprintf(buff,100,"%04d-%02d-%02d %02d:%02d:%02d",year(t),month(t),day(t),hour(t),minute(t),second(t));
+	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,7, buff);
 	u8g.setFont(font_m);
 	snprintf(buff,100,"PH: %0.2lf",drctr.s_pHProbe.getpH());
 	u8g.drawStr( 1,10, buff);
@@ -121,9 +125,9 @@ void draw(){
 	u8g.drawStr( 1,20, buff);
 	snprintf(buff,100,"H: %0.lf %%",drctr.s_DHT11.getHumidity());
 	u8g.drawStr( 1,30, buff);	
-	u8g.setFont(u8g_font_5x7);
-	snprintf(buff,100,"fM: %0.1f%%, FR: %0.1f%%",(float)freeMemory()/(8*1024)*100,(float)FreeRam()/(8*1024)*100);
-	u8g.drawStr( 1,40, buff);	
+	u8g.setFont(font_xs);
+	snprintf(buff,100,"fM: %0.1f%%",(float)freeMemory()/(8*1024)*100);
+	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,u8g.getHeight()-1, buff);	
 	safeFree(buff);
 }
 int drawStatusMessage(char* msg){

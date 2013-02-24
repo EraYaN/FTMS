@@ -1,12 +1,13 @@
 #ifndef TIMEFUNCTIONS_H
 #define TIMEFUNCTIONS_H
-#define SECONDS_IN_DAY 86400UL
-#define SECONDS_IN_HOUR 3600UL
-#define MAX_DIFF_RANDOM_EVENTS 1.5;
 #include <Time.h>
 #include <Timezone.h>
 #include <EthernetUdp.h>
-#include <RTClib.h> 
+#include <RTClib.h>
+#define SECONDS_IN_DAY 86400UL
+#define SECONDS_IN_HOUR 3600UL
+#define MAX_DIFF_RANDOM_EVENTS 1.5
+
 
 TimeChangeRule CEST = {"CEST", Last, Sun, Mar, 2, +120};  //UTC + 2 hours
 TimeChangeRule CET = {"CET", Last, Sun, Oct, 2, +60};   //UTC + 1 hours

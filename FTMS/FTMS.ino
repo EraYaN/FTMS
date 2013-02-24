@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <Time.h> 
+#include <Timezone.h>
 #include <Ethernet.h>
 #include "Definitions.h"
 #include "Director.h"
@@ -15,14 +16,11 @@
 #include <DallasTemperature.h>
 #include <MemoryFree.h>
 #include <U8glib.h>
-/*#include <iterator>
-#include <string>
-#include <pnew.cpp>*/
 
 // Enter a MAC address for your controller below.
 // Newer Ethernet shields have a MAC address printed on a sticker on the shield
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192,168,178, 3);
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xEF };
+IPAddress ip(192,168,178,3);
 EthernetServer server(80);
 RTC_DS1307 RTC;
 Director drctr(0);
@@ -34,6 +32,7 @@ void setup()
 {
 
 	Serial.begin(115200);
+	Serial.println("Setup!");
 	// make sure that the default chip select pin is set to
 	// output, even if you don't use it:
 	pinMode(SDCARD_SLAVESELECT_PIN_ORIG, OUTPUT);  // set the SS pin as an output (necessary!)
@@ -42,10 +41,14 @@ void setup()
 		Serial.println("Card failed, or not present");
 		//don't do anything more:
 		return;
+	} else {
+		Serial.println("SD card ready!");
 	}
 	Ethernet.begin(mac,ip);
 	initEthernet();
+	Serial.println("Ethernet ready!");
 	initTime();
+	Serial.println("Time ready!");
 	//Wire.begin();
 	/*Serial.print("RTC response: ");
 	Serial.println(RTC.begin());
@@ -55,8 +58,10 @@ void setup()
 	randomSeed(lnow());
 	pinMode(13, OUTPUT); //LED pin 
 	initScreen();
+	Serial.println("Screen ready!");
 	//drctr.StartProgram();	
 	drctr.Init();
+	Serial.println("Director ready!");
 }
 
 void loop()

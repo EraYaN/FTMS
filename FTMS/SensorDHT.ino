@@ -17,8 +17,8 @@ SensorDHT::SensorDHT(char* name, SensorType type, int _pin)
 }*/
 int SensorDHT::Init(){
 	//nothing
-	OffsetH = 0;
-	OffsetT = 0;
+	OffsetH = 4; //confirm
+	OffsetT = 0; //measured against others.
 }
 int SensorDHT::updateValue(){
 	int chk = 1;

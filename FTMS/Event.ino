@@ -71,7 +71,8 @@ int Event::check(){
 		break;
 		case EventRandom:
 			double per = (1/frequency)*SECONDS_IN_DAY;
-			if((now()-lastExecution)>random(round(per*SECONDS_IN_DAY),round(per*SECONDS_IN_DAY*MAX_DIFF_RANDOM_EVENTS))){
+			long tmp = random(round(per*SECONDS_IN_DAY), round(per*SECONDS_IN_DAY*MAX_DIFF_RANDOM_EVENTS));
+			if((now()-lastExecution)>tmp){
 				execute();
 			}
 			//frequency = _occurDouble;//TODO

@@ -1,32 +1,41 @@
 #include "TimeFunctions.h"
+#include <Time.h>
+#include <Timezone.h>
+#include <EthernetUdp.h>
+#include <RTClib.h>
 
 const int NTP_PACKET_SIZE= 48;
 const unsigned long seventyYears = 2208988800UL; 
 unsigned int localPort = 8888;
 int needNTPrefreshin = 0;
 time_t prevTime = 0;
-
+const int secondsBeforeSync = 600;
+const int cyclesBeforeNTPReq = 288;
 byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets 
 
 // A UDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
 
 void initTime(){
-	//Udp.begin(localPort); //TODO ethernetshield?
+		Udp.begin(localPort); //TODO ethernetshield?
 	 setSyncProvider(getTime);
-	 setSyncInterval(600);  
+	 setSyncInterval(secondsBeforeSync);  
   while(timeStatus()== timeNotSet)   
-     ; // wait until the time is set by the sync provider
+  ; // wait until the time is set by the sync provider
 }
 //base time update function it requests internet time once every 288 times (should not be more than once every 4 seconds, is once a day now)
 time_t getTime(boolean forceNTP){
+	Serial.print("Sync time, in "); 
+	Serial.print(needNTPrefreshin*secondsBeforeSync/60); 
+	Serial.println(" minutes will the time be requested from the internet."); 
 	//TODO remove next line
-	return (time_t)1360450800;
+	//return (time_t)1360450800;
 	time_t t = 0;
 	if(!RTC.isrunning()){
 		needNTPrefreshin = 0;
 	}
 	if(needNTPrefreshin<=0||forceNTP){		
+		Serial.println("NTP request.."); 
 		sendNTPpacket(timeServer); // send an NTP packet to a time server
 		// wait to see if a reply is available
 		delay(1000);
@@ -35,17 +44,21 @@ time_t getTime(boolean forceNTP){
 			RTC.adjust(DateTime(t));
 		} else {
 			//backupplan
+			Serial.println("NTP backup request.."); 
 			sendNTPpacket(timeServerBackup); // send an NTP packet to a time server
 			// wait to see if a reply is available
 			delay(1000); 
 			if ( Udp.parsePacket() ) { 
 				t = readNTPpacket();
 				RTC.adjust(DateTime(t));
+			} else {
+				Serial.println("Both NTP requests failed.."); 
 			}
 		}
-		needNTPrefreshin = 288;
+		needNTPrefreshin = cyclesBeforeNTPReq;
 	}
 	if(RTC.isrunning() && t==0 ){
+		Serial.println("Got time from RTC request.."); 
 		t = RTC.now().unixtime();
 	}
 	needNTPrefreshin--;

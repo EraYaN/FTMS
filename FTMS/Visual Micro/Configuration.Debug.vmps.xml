@@ -1,5 +1,5 @@
 <VisualMicro>
-  <Program Name="FTMS" Ext=".ino" Location="C:\Users\Erwin\GitHub\FTMS">
+  <Program Name="FTMS" Ext=".ino" Location="C:\Users\Erwin\GitHub\FTMS\FTMS">
     <Compile IsCompiled="0" CompilerErrors="0" ConfigurationName="Debug" StopOnError="False" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\Erwin\AppData\Local\VMicro\Arduino\Builds\FTMS\mega2560" />
     <Debug />
     <Platform Name="Arduino">

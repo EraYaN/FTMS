@@ -2,7 +2,6 @@
 #define EVENT_H
 #include "Definitions.h"
 #include "TimeFunctions.h"
-#pragma once
 class Event
 {
 	
