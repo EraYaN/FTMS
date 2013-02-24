@@ -35,7 +35,7 @@ void initScreen(){
 }
 char* substr(char* str, int start, int number){
 	int n = min(number,strlen(str)-start);
-	char* to = (char*) testMalloc(n+1);
+	char* to = (char*) safeMalloc(n+1);
 	strncpy(to,str+start,n);
 	to[n]='\0';
 	return to;
@@ -59,7 +59,7 @@ int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &lefto
 		//Serial.println(strlen(msg)+1);
 		//Serial.flush();
 		//fr("malloc");
-		workstr = (char*)testMalloc(strlen(msg)+1);
+		workstr = (char*)safeMalloc(strlen(msg)+1);
 		//Serial.println("splitter-strcpy-1");
 		strcpy(workstr, msg);
 		//Serial.println("splitter-if-2");
@@ -75,7 +75,7 @@ int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &lefto
 				a = (int)space-(int)workstr;
 				//Serial.println("splitter-while-word-3");
 				workstr = substr(tmp,0,a);       
-				testFree( tmp); 
+				safeFree( tmp); 
 				//Serial.println("splitter-while-word-4");
 				width = gPW(workstr);
 				if(a>strlen(msg)||I>10000) { /*Serial.println("splitter-while-word-error-2");*/ break; };  
@@ -84,18 +84,18 @@ int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &lefto
 			}
 			b += a;
 			if(numlines>0) b++;
-			lines[numlines] = (char*)testMalloc(strlen(workstr)+1);
+			lines[numlines] = (char*)safeMalloc(strlen(workstr)+1);
 			strcpy(lines[numlines],workstr);
 			numlines++;
-			testFree(workstr);
+			safeFree(workstr);
 			workstr = substr(msg,b+1,strlen(msg)-b-1);
 			width = gPW(workstr);
 			if(width<=screenwidth){
-				lines[numlines] = (char*)testMalloc(strlen(workstr)+1);
+				lines[numlines] = (char*)safeMalloc(strlen(workstr)+1);
 				strcpy(lines[numlines],workstr);
 				numlines++;
 				done = true;
-				testFree(workstr);
+				safeFree(workstr);
 			}
 			if(numlines>=maxlines){
 				leftover = true;
@@ -105,14 +105,14 @@ int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &lefto
 	} 
 	else {
 		//Serial.println("splitter-if-short");
-		lines[numlines] = (char*)testMalloc(strlen(msg)+1);		
+		lines[numlines] = (char*)safeMalloc(strlen(msg)+1);		
 		strcpy(lines[numlines],msg);
 		numlines++;
 	}
 	return numlines;
 }
 void draw(){
-	char* buff = (char*)testMalloc(100);
+	char* buff = (char*)safeMalloc(100);
 	u8g.setColorIndex(1);	
 	u8g.setFont(font_m);
 	snprintf(buff,100,"PH: %0.2lf",drctr.s_pHProbe.getpH());
@@ -124,7 +124,7 @@ void draw(){
 	u8g.setFont(u8g_font_5x7);
 	snprintf(buff,100,"fM: %0.1f%%, FR: %0.1f%%",(float)freeMemory()/(8*1024)*100,(float)FreeRam()/(8*1024)*100);
 	u8g.drawStr( 1,40, buff);	
-	testFree(buff);
+	safeFree(buff);
 }
 int drawStatusMessage(char* msg){
 	u8g.setColorIndex(1);	
@@ -148,7 +148,7 @@ int drawStatusMessage(char* msg){
 		offsetX = max(0,((int)u8g.getWidth() - width)/2);
 		offsetY = max(0,(((int)(u8g.getHeight())-textHeigth)/2))+u8g.getFontLineSpacing()*(j+1);
 		u8g.drawStr( offsetX,offsetY, output[j]);
-		testFree(output[j]);
+		safeFree(output[j]);
 	}
 }
 void frameStatusMessage(char* msg){	

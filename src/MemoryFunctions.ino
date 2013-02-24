@@ -1,4 +1,4 @@
-extern void *testMalloc(size_t size)
+extern void *safeMalloc(size_t size)
 {
   void *tmp;
  
@@ -26,7 +26,7 @@ extern void *testMalloc(size_t size)
   return tmp;
 }
 //Call this function instead of free in caller function
-extern void testFree(void *block)
+extern void safeFree(void *block)
 {
   /*unsigned int addr;
   unsigned int *sizePtr;

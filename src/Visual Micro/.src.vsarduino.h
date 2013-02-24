@@ -37,6 +37,8 @@ double increase(double prog, double span, double time, double min, double max);
 double decrease(double prog, double span, double time, double min, double max);
 double normalize(double v);
 extern double getMoonPhase(int Y, int M, int D);
+extern void *safeMalloc(size_t size);
+extern void safeFree(void *block);
 void fr(const char* text);
 void initScreen();
 char* substr(char* str, int start, int number);
@@ -69,33 +71,31 @@ int lday(time_t t);
 int lweekday(time_t t);
 void digitalClockDisplay();
 void printDigits(int digits);
-extern void *safeMalloc(size_t size);
-extern void safeFree(void *block);
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Configuration.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Configuration.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Definitions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Director.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Director.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\EthernetFunctions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\EthernetFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Event.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Event.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Events.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Events.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\LightCurves.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Pins.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Program.h"
-#include "C:\Users\Erwin\GitHub\FTMS\ScreenFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\Sensor.h"
-#include "C:\Users\Erwin\GitHub\FTMS\Sensor.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\SensorDHT.h"
-#include "C:\Users\Erwin\GitHub\FTMS\SensorDHT.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\SensorpHProbe.h"
-#include "C:\Users\Erwin\GitHub\FTMS\SensorpHProbe.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\TimeFunctions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\TimeFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\memfunctions.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\FTMS.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Configuration.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Configuration.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Definitions.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Director.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Director.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\EthernetFunctions.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\EthernetFunctions.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Event.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Event.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Events.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Events.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\LightCurves.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\MemoryFunctions.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Pins.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Program.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\ScreenFunctions.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Sensor.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\Sensor.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\SensorDHT.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\SensorDHT.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\SensorpHProbe.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\SensorpHProbe.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\src\TimeFunctions.h"
+#include "C:\Users\Erwin\GitHub\FTMS\src\TimeFunctions.ino"
