@@ -1,9 +1,8 @@
-/FTMS.opensdf
+*.opensdf
 *.sdf
-/FTMS.vcxproj.user
-/FTMS.vcxproj.filters
+*.vcxproj.user
+*.vcxproj.filters
 *.suo
-/FTMS.v11.suo
 *.vcxproj[0-9]
-[Dd]ebug/
-[Rr]elease/
+*[Dd]ebug/
+*[Rr]elease/
