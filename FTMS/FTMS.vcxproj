@@ -122,7 +122,6 @@
     <ClInclude Include="Sensor.h" />
     <ClInclude Include="TimeFunctions.h" />
     <ClInclude Include="Visual Micro\.FTMS.vsarduino.h" />
-    <ClInclude Include="Visual Micro\.src.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Event.ino">

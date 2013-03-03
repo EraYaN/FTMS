@@ -7,13 +7,12 @@
 ///	Constructor of the Director class.
 /// </summary>
 /// <param name="pid">ID of the program to run.</param>
-Director::Director(unsigned int pid)
-	:s_DHT11("Huiskamer",DHT11,DHT11_PIN),
+Director::Director()
+	:s_DHT11("Kast",DHT11,DHT11_PIN),
+	s_DS18B20("Water",0),
 	s_pHProbe()
 {
-	//contruct
-	program_id = pid;	
-	//events = {new Event("Test", EventTime, 0.5 /*noon*/, 28, HIGH)};
+
 }
 /// <summary>
 ///	Constructor of the Director class. Run default program.
@@ -25,6 +24,7 @@ void Director::Init() {
 	//contruct
 	s_pHProbe.Init();
 	s_DHT11.Init();
+	s_DS18B20.Init();
 }
 void Director::Tick(){
 	//runs every "loop()"
@@ -39,13 +39,15 @@ void Director::StartProgram(){
 	//start the program.
 	int errCode = 0;
 	//update all sensor values
-	if(errCode=s_DHT11.updateValue()!=0) Serial.println("DHT11 update error"+errCode);
-	delay(100);
-	if(errCode=s_pHProbe.updateValue(s_DHT11.getTemperature())!=0) Serial.println("pHProbe update error"+errCode);
+	if(errCode=s_DHT11.updateValue()!=0) Serial.println("DHT11 update error 0"+errCode);
+	//delay(100);
+	if(errCode=s_DS18B20.updateValue()!=0) Serial.println("DS18B20 update error 0"+errCode);
+	//delay(100);
+	if(errCode=s_pHProbe.updateValue(s_DS18B20.getTemperature())!=0) Serial.println("pHProbe update error 0"+errCode);
 	//
-	digitalClockDisplay();
+	//digitalClockDisplay();
 	//draw screen
-	frame(); //TODO hookup screen and uncomment this line
+	frame();
 	checkForHTTPConnections(); //check if any client has connected and respond.
 	//delay(2000);
 	//s_pHProbe.Calibrate();

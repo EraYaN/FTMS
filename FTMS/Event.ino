@@ -5,7 +5,7 @@
 Event::Event(){
 	//nothing
 }
-Event::Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue)
+Event::Event(const char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue)
 {
 	name = _name;
 	type = _type;
@@ -24,7 +24,7 @@ Event::Event(char* _name, EventType _type, double _occurDouble, unsigned int _pi
 	pinValue = _pinValue;
 	simple = true;
 }
-Event::Event(char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)())
+Event::Event(const char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)())
 {
 	name = _name;
 	type = _type;
@@ -57,25 +57,28 @@ int Event::execute(){
 
 int Event::check(){
 	switch(type){
-		case EventTime:
-			//time = _occurDouble;//TODO
+		case EventTime:			
 			if(time>getDayProgress()){
+				Serial.print("Executed timed event: ");
+				Serial.println(name);
 				execute();
 			}
 		break;
 		case EventInterval:
 			if(interval>(now()-lastExecution)){
+				Serial.print("Executed interval event: ");
+				Serial.println(name);
 				execute();
-			}
-			//interval = _occurDouble;//TODO
+			}			
 		break;
 		case EventRandom:
 			double per = (1/frequency)*SECONDS_IN_DAY;
 			long tmp = random(round(per*SECONDS_IN_DAY), round(per*SECONDS_IN_DAY*MAX_DIFF_RANDOM_EVENTS));
 			if((now()-lastExecution)>tmp){
+				Serial.print("Executed random event: ");
+				Serial.println(name);
 				execute();
-			}
-			//frequency = _occurDouble;//TODO
+			}			
 		break;	
 	}
 }

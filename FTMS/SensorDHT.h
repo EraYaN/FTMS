@@ -6,7 +6,7 @@ class SensorDHT :
 {
 public:
 	//SensorDHT();
-	SensorDHT(char* name, SensorType type, int _pin);
+	SensorDHT(const char* name, SensorType type, int _pin);
 	~SensorDHT(void);
 	int Init();
 	int updateValue();

@@ -1,7 +1,7 @@
 #include "SensorDHT.h"
 
 
-SensorDHT::SensorDHT(char* name, SensorType type, int _pin)
+SensorDHT::SensorDHT(const char* name, SensorType type, int _pin)
 	: Sensor(name,type)
 {
 	pin = _pin;

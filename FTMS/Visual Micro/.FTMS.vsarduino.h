@@ -41,11 +41,11 @@ extern void *safeMalloc(size_t size);
 extern void safeFree(void *block);
 void fr(const char* text);
 void initScreen();
-char* substr(char* str, int start, int number);
+char* substr(const char* str, int start, int number);
 unsigned int getStrWidth(const char *s);
 void draw();
-int drawStatusMessage(char* msg);
-void frameStatusMessage(char* msg);
+int drawStatusMessage(const char* msg);
+void frameStatusMessage(const char* msg);
 void frame();
 void initTime();
 time_t getTime(boolean forceNTP);
@@ -95,6 +95,8 @@ void printDigits(int digits);
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\Sensor.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDHT.h"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDHT.ino"
+#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDS.h"
+#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDS.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorpHProbe.h"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorpHProbe.ino"
 #include "C:\Users\Erwin\GitHub\FTMS\FTMS\TimeFunctions.h"

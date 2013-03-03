@@ -11,9 +11,9 @@ class Event
 	byte pinValue;
 	int (*nonSimpleExecute)();
 	time_t lastExecution;
-	char* name;
+	const char* name;
 public:
-	char* getName();
+	const char* getName();
 	int execute();
 	int check();
 	EventType type;
@@ -21,8 +21,8 @@ public:
 	double time; //in day progress..
 	double frequency; //per day.. (max)
 	Event(void);
-	Event(char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue);
-	Event(char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)());
+	Event(const char* _name, EventType _type, double _occurDouble, unsigned int _pin, byte _pinValue);
+	Event(const char* _name, EventType _type, double _occurDouble, int (*_nonSimpleExecute)());
 	~Event(void);
 };
 

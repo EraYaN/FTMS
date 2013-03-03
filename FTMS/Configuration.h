@@ -1,6 +1,6 @@
 #pragma once
 struct ConfigValue{
-	char* index;
+	const char* index;
 };
 class Configuration
 {

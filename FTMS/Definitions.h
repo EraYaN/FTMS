@@ -15,4 +15,7 @@ enum SensorType{
 	DS18B20,
 	WaterLevel	
 };
+
+const int tickTime = 2000; //once every 2 seconds
+
 #endif

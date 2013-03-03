@@ -8,12 +8,12 @@
 class Sensor{
 	//Class discription
 public:
-	Sensor(char* _name, SensorType _type);   
+	Sensor(const char* _name, SensorType _type);   
 	Sensor();
 	int Init();
-	char* getName();
+	const char* getName();
 protected:
-	char* name;
+	const char* name;
 	SensorType type;
 };
 #endif

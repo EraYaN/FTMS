@@ -11,9 +11,9 @@ U8GLIB_ST7920_128X64 u8g(SCREEN_SCK, SCREEN_MOSI, SCREEN_SS, U8G_PIN_NONE);
 //U8GLIB_ST7920_128X64 u8g(d0, d1, d2, d3, d4, d5, d6, d7, en, cs1, cs2, di, rw [, reset])
 //8Bit
 const u8g_fntpgm_uint8_t *font_l = u8g_font_helvR10r;
-const u8g_fntpgm_uint8_t *font_m = u8g_font_helvR08r;
+const u8g_fntpgm_uint8_t *font_m = u8g_font_helvR08;
 const u8g_fntpgm_uint8_t *font_s = u8g_font_04b_03r;
-const u8g_fntpgm_uint8_t *font_xs = u8g_font_u8glib_4;
+const u8g_fntpgm_uint8_t *font_xs = u8g_font_u8glib_4r;
 
 int K = 0;
 int lastbytevalue=0;
@@ -33,7 +33,7 @@ void initScreen(){
 
 
 }
-char* substr(char* str, int start, int number){
+char* substr(const char* str, int start, int number){
 	int n = min(number,strlen(str)-start);
 	char* to = (char*) safeMalloc(n+1);
 	strncpy(to,str+start,n);
@@ -43,7 +43,7 @@ char* substr(char* str, int start, int number){
 unsigned int getStrWidth(const char *s){
 	return u8g.getStrWidth(s);
 }
-int unsigned splitInLines(char* msg, char* lines[], size_t maxlines, bool &leftover, unsigned int (*gPW)(const char*)){
+int unsigned splitInLines(const char* msg, char* lines[], size_t maxlines, bool &leftover, unsigned int (*gPW)(const char*)){
 	int screenwidth = u8g.getWidth();
 	int width = gPW(msg);
 	int unsigned numlines = 0;
@@ -116,21 +116,27 @@ void draw(){
 	u8g.setColorIndex(1);	
 	u8g.setFont(font_s);
 	time_t t = lnow();	
-	snprintf(buff,100,"%04d-%02d-%02d %02d:%02d:%02d",year(t),month(t),day(t),hour(t),minute(t),second(t));
+	snprintf(buff,100,"%04d-%02d-%02d",year(t),month(t),day(t));
 	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,7, buff);
+	snprintf(buff,100,"%02d:%02d",hour(t),minute(t));
+	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,14, buff);
 	u8g.setFont(font_m);
-	snprintf(buff,100,"PH: %0.2lf",drctr.s_pHProbe.getpH());
+	snprintf(buff,100,"W-PH: %0.2lf",drctr.s_pHProbe.getpH());
 	u8g.drawStr( 1,10, buff);
-	snprintf(buff,100,"T: %0.lf %cC",drctr.s_DHT11.getTemperature(),'\xb0');
+	snprintf(buff,100,"W-T: %0.1lf %cC",drctr.s_DS18B20.getTemperature(),'\xb0');
 	u8g.drawStr( 1,20, buff);
-	snprintf(buff,100,"H: %0.lf %%",drctr.s_DHT11.getHumidity());
-	u8g.drawStr( 1,30, buff);	
+	snprintf(buff,100,"K-T: %0.lf %cC",drctr.s_DHT11.getTemperature(),'\xb0');
+	u8g.drawStr( 1,30, buff);
+	snprintf(buff,100,"K-H: %0.lf %%",drctr.s_DHT11.getHumidity());
+	u8g.drawStr( 1,40, buff);	
 	u8g.setFont(font_xs);
 	snprintf(buff,100,"fM: %0.1f%%",(float)freeMemory()/(8*1024)*100);
 	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,u8g.getHeight()-1, buff);	
 	safeFree(buff);
+	//seconds indicator
+	u8g.drawLine(0, 0, second(t)/60.0*u8g.getWidth(), 0);
 }
-int drawStatusMessage(char* msg){
+int drawStatusMessage(const char* msg){
 	u8g.setColorIndex(1);	
 	u8g.setFont(font_l);	
 	const int m = (u8g.getHeight())/u8g.getFontLineSpacing();
@@ -155,7 +161,7 @@ int drawStatusMessage(char* msg){
 		safeFree(output[j]);
 	}
 }
-void frameStatusMessage(char* msg){	
+void frameStatusMessage(const char* msg){	
 	//Serial.println("frame");
 	u8g.firstPage();
 	do{
