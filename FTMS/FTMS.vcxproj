@@ -98,6 +98,9 @@
     <None Include="Sensor.ino">
       <FileType>CppCode</FileType>
     </None>
+    <None Include="SensorDS.ino">
+      <FileType>CppCode</FileType>
+    </None>
     <None Include="TimeFunctions.ino">
       <FileType>CppCode</FileType>
     </None>
@@ -117,6 +120,9 @@
     <ClInclude Include="Events.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="SensorDHT.h" />
+    <ClInclude Include="SensorDS.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="SensorpHProbe.h" />
     <ClInclude Include="Pins.h" />
     <ClInclude Include="Sensor.h" />
