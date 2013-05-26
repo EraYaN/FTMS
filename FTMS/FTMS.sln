@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTMS", "FTMS.vcxproj", "{C1D88ADC-6A14-4927-BBDB-ADDCC57AA432}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldClock", "\\SERVER\Erwin\Documents\Arduino\My Examples\WorldClock\WorldClock.vcxproj", "{F41A4433-F9AF-4BB9-8203-9E270992A720}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebSiteServer", "..\..\..\Arduino\WebSiteServer\WebSiteServer.vcxproj", "{40C66FE1-4366-4186-90C4-14EF82E96617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{C1D88ADC-6A14-4927-BBDB-ADDCC57AA432}.Debug|Win32.Build.0 = Debug|Win32
 		{C1D88ADC-6A14-4927-BBDB-ADDCC57AA432}.Release|Win32.ActiveCfg = Release|Win32
 		{C1D88ADC-6A14-4927-BBDB-ADDCC57AA432}.Release|Win32.Build.0 = Release|Win32
-		{F41A4433-F9AF-4BB9-8203-9E270992A720}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F41A4433-F9AF-4BB9-8203-9E270992A720}.Debug|Win32.Build.0 = Debug|Win32
-		{F41A4433-F9AF-4BB9-8203-9E270992A720}.Release|Win32.ActiveCfg = Release|Win32
-		{F41A4433-F9AF-4BB9-8203-9E270992A720}.Release|Win32.Build.0 = Release|Win32
+		{40C66FE1-4366-4186-90C4-14EF82E96617}.Debug|Win32.ActiveCfg = Debug|Win32
+		{40C66FE1-4366-4186-90C4-14EF82E96617}.Debug|Win32.Build.0 = Debug|Win32
+		{40C66FE1-4366-4186-90C4-14EF82E96617}.Release|Win32.ActiveCfg = Release|Win32
+		{40C66FE1-4366-4186-90C4-14EF82E96617}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,10 @@
+#ifndef _VSARDUINO_H_
+#define _VSARDUINO_H_
 //Board = Arduino Mega 2560 or Mega ADK
-#define ARDUINO 103
 #define __AVR_ATmega2560__
-#define F_CPU 16000000L
+#define ARDUINO 105
 #define __AVR__
+#define F_CPU 16000000L
 #define __cplusplus
 #define __attribute__(x)
 #define __inline__
@@ -22,10 +24,10 @@
 #define NOINLINE __attribute__((noinline))
 
 typedef unsigned char byte;
-extern "C" void __cxa_pure_virtual() {}
+extern "C" void __cxa_pure_virtual() {;}
 
-//already defined in arduno.h
-//already defined in arduno.h
+//
+//
 void initEthernet();
 void checkForHTTPConnections();
 void processEvents();
@@ -72,32 +74,33 @@ int lweekday(time_t t);
 void digitalClockDisplay();
 void printDigits(int digits);
 
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\FTMS.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Configuration.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Configuration.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Definitions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Director.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Director.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\EthernetFunctions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\EthernetFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Event.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Event.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Events.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Events.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\LightCurves.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\MemoryFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Pins.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Program.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\ScreenFunctions.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Sensor.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\Sensor.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDHT.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDHT.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDS.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorDS.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorpHProbe.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\SensorpHProbe.ino"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\TimeFunctions.h"
-#include "C:\Users\Erwin\GitHub\FTMS\FTMS\TimeFunctions.ino"
+#include "F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
+#include "F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\FTMS.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Configuration.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Configuration.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Definitions.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Director.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Director.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\EthernetFunctions.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\EthernetFunctions.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Event.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Event.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Events.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Events.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\LightCurves.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\MemoryFunctions.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Pins.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Program.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\ScreenFunctions.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Sensor.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\Sensor.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorDHT.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorDHT.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorDS.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorDS.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorpHProbe.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\SensorpHProbe.ino"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\TimeFunctions.h"
+#include "C:\Users\Erwin\Documents\GitHub\FTMS\FTMS\TimeFunctions.ino"
+#endif
