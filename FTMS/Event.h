@@ -14,8 +14,8 @@ class Event
 	const char* name;
 public:
 	const char* getName();
-	int execute();
-	int check();
+	void execute();
+	void check();
 	EventType type;
 	double interval; //in seconds..
 	double time; //in day progress..

@@ -2,11 +2,12 @@
 #define _VSARDUINO_H_
 //Board = Arduino Mega 2560 or Mega ADK
 #define __AVR_ATmega2560__
+#define 
 #define ARDUINO 105
+#define ARDUINO_MAIN
 #define __AVR__
 #define F_CPU 16000000L
 #define __cplusplus
-#define __attribute__(x)
 #define __inline__
 #define __asm__(x)
 #define __extension__
@@ -15,14 +16,16 @@
 #define __inline__
 #define __asm__ 
 #define __volatile__
+
 #define __builtin_va_list
 #define __builtin_va_start
 #define __builtin_va_end
 #define __DOXYGEN__
+#define __attribute__(x)
+#define NOINLINE __attribute__((noinline))
 #define prog_void
 #define PGM_VOID_P int
-#define NOINLINE __attribute__((noinline))
-
+            
 typedef unsigned char byte;
 extern "C" void __cxa_pure_virtual() {;}
 
@@ -39,8 +42,8 @@ double increase(double prog, double span, double time, double min, double max);
 double decrease(double prog, double span, double time, double min, double max);
 double normalize(double v);
 extern double getMoonPhase(int Y, int M, int D);
-extern void *safeMalloc(size_t size);
-extern void safeFree(void *block);
+void *safeMalloc(size_t size);
+void safeFree(void *block);
 void fr(const char* text);
 void initScreen();
 char* substr(const char* str, int start, int number);

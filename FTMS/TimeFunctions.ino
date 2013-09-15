@@ -109,16 +109,7 @@ time_t readNTPpacket(){
 	return (time_t)epoch; 
 }
 
-/*void doTimeWork(){
-	/*if(now()!=prevTime){
-		timeChanged();
-	}
-}*/
 
-/*void timeChanged(){
-	//TODO: display change
-	//check events about to happen.
-}*/
 //time helper functions
 double getDayProgress(){
 	time_t t = lnow();

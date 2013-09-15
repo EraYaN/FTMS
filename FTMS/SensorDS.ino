@@ -19,6 +19,7 @@ int SensorDS::Init(){
 	OffsetT = -0.5; //measured against melting water.
 	ds.getAddress(address, id);	
 	ds.setResolution(address,11);
+	return ds.getDeviceCount() > 0;
 }
 
 int SensorDS::updateValue(){

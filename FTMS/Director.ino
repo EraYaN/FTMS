@@ -25,6 +25,19 @@ void Director::Init() {
 	s_pHProbe.Init();
 	s_DHT11.Init();
 	s_DS18B20.Init();
+	//start processEvents
+	initEvents();
+	//set Pin Modes
+	for(int pin=0;pin<pincount;pin++){
+		pinMode(pins[pin][0],pins[pin][1]);
+		if(pins[pin][1]==OUTPUT){
+			if(digitalPinHasPWM(pins[pin][1])){
+				analogWrite(pins[pin][0],pins[pin][2]);
+			} else {
+				digitalWrite(pins[pin][0],pins[pin][2]);
+			}
+		}
+	}
 }
 void Director::Tick(){
 	//runs every "loop()"
@@ -39,12 +52,16 @@ void Director::StartProgram(){
 	//start the program.
 	int errCode = 0;
 	//update all sensor values
-	if(errCode=s_DHT11.updateValue()!=0) Serial.println("DHT11 update error 0"+errCode);
+	if((errCode=s_DHT11.updateValue())!=0) Serial.println("DHT11 update error 0"+errCode);
 	//delay(100);
-	if(errCode=s_DS18B20.updateValue()!=0) Serial.println("DS18B20 update error 0"+errCode);
+	if((errCode=s_DS18B20.updateValue())!=0) Serial.println("DS18B20 update error 0"+errCode);
 	//delay(100);
-	if(errCode=s_pHProbe.updateValue(s_DS18B20.getTemperature())!=0) Serial.println("pHProbe update error 0"+errCode);
-	//
+	if((errCode=s_pHProbe.updateValue(s_DS18B20.getTemperature()))!=0) Serial.println("pHProbe update error 0"+errCode);
+	//Do all switching events
+	processEvents();
+	//Set all light values
+	//analogWrite(
+	
 	//digitalClockDisplay();
 	//draw screen
 	frame();

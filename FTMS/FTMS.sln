@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTMS", "FTMS.vcxproj", "{C1D88ADC-6A14-4927-BBDB-ADDCC57AA432}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebSiteServer", "..\..\..\Arduino\WebSiteServer\WebSiteServer.vcxproj", "{40C66FE1-4366-4186-90C4-14EF82E96617}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebSiteServer", "..\WebSiteServer\WebSiteServer.vcxproj", "{40C66FE1-4366-4186-90C4-14EF82E96617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

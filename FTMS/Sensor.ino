@@ -9,6 +9,7 @@ Sensor::Sensor(const char* _name, SensorType _type){
 }
 int Sensor::Init(){
 	//nothing
+	return 1;
 }
 const char* Sensor::getName(){
 	return name;

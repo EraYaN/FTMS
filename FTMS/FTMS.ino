@@ -71,7 +71,7 @@ void loop()
 {
 	//Serial.println(sizeof(u8g_uint_t));
 	//Serial.println(F("Starting program in 1 second..."));
-	//delay(1000);
+	//delay(1000);	
 	long t1 = millis();
 	drctr.StartProgram();	
 	long t2 = millis();

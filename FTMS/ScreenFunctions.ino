@@ -1,9 +1,5 @@
 #include <U8glib.h>
-/*#include <iterator>
-#include <string>*/
 #include <string.h>
-//#include <pnew.cpp>
-//#include <stdio.h>
 //U8GLIB_ST7920_128X64 u8g(3, 9, 8, U8G_PIN_NONE);
 // SPI Com: SCK = en = 3, MOSI = rw = 9, CS = di = 8
 U8GLIB_ST7920_128X64 u8g(SCREEN_SCK, SCREEN_MOSI, SCREEN_SS, U8G_PIN_NONE);
@@ -129,8 +125,8 @@ void draw(){
 	u8g.drawStr( 1,30, buff);
 	snprintf(buff,100,"K-H: %0.lf %%",drctr.s_DHT11.getHumidity());
 	u8g.drawStr( 1,40, buff);	
-	u8g.setFont(font_xs);
-	snprintf(buff,100,"fM: %0.1f%%",(float)freeMemory()/(8*1024)*100);
+	u8g.setFont(font_xs);	
+	snprintf(buff,100,"fM: %0.1f%%",(double)freeMemory()/(8*1024)*100);	
 	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,u8g.getHeight()-1, buff);	
 	safeFree(buff);
 	//seconds indicator
