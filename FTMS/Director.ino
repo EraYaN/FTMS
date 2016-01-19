@@ -1,6 +1,4 @@
 #include "Director.h"
-#include "Program.h"
-#include <Time.h>
 
 //Function Declarations for Director
 /// <summary>
@@ -8,8 +6,8 @@
 /// </summary>
 /// <param name="pid">ID of the program to run.</param>
 Director::Director()
-	:s_DHT11("Kast",DHT11,DHT11_PIN),
-	s_DS18B20("Water",0),
+	:s_DHT11("Kast",ST_DHT11,DHT11_PIN),
+	s_DS18B20("Water",0,&oneWire),
 	s_pHProbe()
 {
 
@@ -25,8 +23,6 @@ void Director::Init() {
 	s_pHProbe.Init();
 	s_DHT11.Init();
 	s_DS18B20.Init();
-	//start processEvents
-	initEvents();
 	//set Pin Modes
 	for(int pin=0;pin<pincount;pin++){
 		pinMode(pins[pin][0],pins[pin][1]);
@@ -48,25 +44,26 @@ int Director::SpecialRoutine(){
 	//Pause all and execute task. Like calibrating the pH-probe.
 	return 0;
 }
-void Director::StartProgram(){
+void Director::StartProgram(){  
 	//start the program.
 	int errCode = 0;
 	//update all sensor values
-	if((errCode=s_DHT11.updateValue())!=0) Serial.println("DHT11 update error 0"+errCode);
-	//delay(100);
-	if((errCode=s_DS18B20.updateValue())!=0) Serial.println("DS18B20 update error 0"+errCode);
-	//delay(100);
-	if((errCode=s_pHProbe.updateValue(s_DS18B20.getTemperature()))!=0) Serial.println("pHProbe update error 0"+errCode);
-	//Do all switching events
-	processEvents();
-	//Set all light values
-	//analogWrite(
-	
-	//digitalClockDisplay();
+  unsigned long t1 = millis();
+	if((errCode=s_DHT11.updateValue())!=0) Serial.println("E: DHT11 update error 0"+errCode);
+  unsigned long t2 = millis();
+	if((errCode=s_DS18B20.updateValue())!=0) Serial.println("E: DS18B20 update error 0"+errCode);
+  unsigned long t3 = millis();
+	if((errCode=s_pHProbe.updateValue(s_DS18B20.getTemperature()))!=0) Serial.println("E: pHProbe update error 0"+errCode);
+  unsigned long t4 = millis();
 	//draw screen
 	frame();
-	checkForHTTPConnections(); //check if any client has connected and respond.
-	//delay(2000);
-	//s_pHProbe.Calibrate();
-
+  unsigned long t5 = millis();
+  Serial.println("Sensors");
+  Serial.println(t2-t1);
+  Serial.println(t3-t2);
+  Serial.println(t4-t3);
+  Serial.println("Screen");
+  Serial.println(t5-t4);
+  Serial.println("Total");
+  Serial.println(t5-t1);
 }

@@ -12,23 +12,11 @@ const u8g_fntpgm_uint8_t *font_s = u8g_font_04b_03r;
 const u8g_fntpgm_uint8_t *font_xs = u8g_font_u8glib_4r;
 
 int K = 0;
-int lastbytevalue=0;
-void fr(const char* text){
-	Serial.print("\t---- ");
-	int tmp = freeMemory();
-	Serial.print(tmp-lastbytevalue);
-	lastbytevalue=tmp;
-	Serial.print(" mutation, ");
-	Serial.print(lastbytevalue);
-	Serial.print(" bytes free RAM ->");
-	Serial.println(text);
-	Serial.flush();
 
-}
 void initScreen(){
-
-
+  u8g.begin();
 }
+
 char* substr(const char* str, int start, int number){
 	int n = min(number,strlen(str)-start);
 	char* to = (char*) safeMalloc(n+1);
@@ -110,12 +98,11 @@ int unsigned splitInLines(const char* msg, char* lines[], size_t maxlines, bool 
 void draw(){
 	char* buff = (char*)safeMalloc(100);
 	u8g.setColorIndex(1);	
-	u8g.setFont(font_s);
-	time_t t = lnow();	
-	snprintf(buff,100,"%04d-%02d-%02d",year(t),month(t),day(t));
-	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,7, buff);
-	snprintf(buff,100,"%02d:%02d",hour(t),minute(t));
-	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,14, buff);
+	//u8g.setFont(font_s);	
+	//snprintf(buff,100,"%04d-%02d-%02d",year(t),month(t),day(t));
+	//u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,7, buff);
+	//snprintf(buff,100,"%02d:%02d",hour(t),minute(t));
+	//u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,14, buff);
 	u8g.setFont(font_m);
 	snprintf(buff,100,"W-PH: %0.2lf",drctr.s_pHProbe.getpH());
 	u8g.drawStr( 1,10, buff);
@@ -126,11 +113,11 @@ void draw(){
 	snprintf(buff,100,"K-H: %0.lf %%",drctr.s_DHT11.getHumidity());
 	u8g.drawStr( 1,40, buff);	
 	u8g.setFont(font_xs);	
-	snprintf(buff,100,"fM: %0.1f%%",(double)freeMemory()/(8*1024)*100);	
-	u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,u8g.getHeight()-1, buff);	
+	snprintf(buff,100,"cycles: %0.d",cycles);	
+  u8g.drawStr( u8g.getWidth()-u8g.getStrPixelWidth(buff)-1,u8g.getHeight()-1, buff);
 	safeFree(buff);
-	//seconds indicator
-	u8g.drawLine(0, 0, second(t)/60.0*u8g.getWidth(), 0);
+	//cycles indicator
+	u8g.drawLine(0, 0, cycles, 0);
 }
 int drawStatusMessage(const char* msg){
 	u8g.setColorIndex(1);	

@@ -2,7 +2,7 @@
 
 
 SensorDHT::SensorDHT(const char* name, SensorType type, int _pin)
-	: Sensor(name,type)
+	: Sensor(name,type), dht(DHT11_PIN,DHT11)
 {
 	pin = _pin;
 	Humidity = -1;
@@ -20,32 +20,9 @@ int SensorDHT::Init(){
 	OffsetH = 4; //confirm
 	OffsetT = 0; //measured against others.
 }
-int SensorDHT::updateValue(){
-	int chk = 1;
-	if(type==DHT11){
-		chk = DHT.read11(pin);
-	} else if (type==DHT22){
-		chk = DHT.read22(pin);
-	} else {
-		return -4;
-	}
-	switch (chk)
-	{
-		case DHTLIB_OK:  
-			 //everything is fine
-			break;
-		case DHTLIB_ERROR_CHECKSUM: 
-			return -1; 
-			break;
-		case DHTLIB_ERROR_TIMEOUT: 
-			return -2; 
-			break;
-		default: 
-			return -3; 
-			break;
-	}
-	Humidity = DHT.humidity;
-	Temperature = DHT.temperature;	
+int SensorDHT::updateValue(){	
+	Humidity = dht.readHumidity();
+	Temperature = dht.readTemperature();
 	return 0;
 }
 double SensorDHT::getHumidity(){

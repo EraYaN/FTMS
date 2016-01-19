@@ -5,8 +5,12 @@
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192,168,178,15);
+  0x87,0x16,0x37,0xE8,0xD9,0xBE };
+IPAddress ip(192,168,178,3);
+// the router's gateway address:
+IPAddress gateway(192,168,178,1);
+// the subnet:
+IPAddress subnet(255,255,255,0);
 
 // Initialize the Ethernet server library
 // with the IP address and port you want to use 
@@ -30,7 +34,7 @@ pinMode(4, OUTPUT);
 pinMode(13, OUTPUT);
 
   // start the Ethernet connection and the server:
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(mac, ip, gateway, subnet);
   server.begin();
   Serial.print("server is at ");
   Serial.println(Ethernet.localIP());

@@ -1,6 +1,8 @@
 #pragma once
 #include "Sensor.h"
 #include "Definitions.h"
+#include <DHT.h>
+
 class SensorDHT :
 	public Sensor
 {
@@ -18,5 +20,6 @@ private:
 	double OffsetT; //For Temperature compensation
 	double OffsetH; //For Humidiy compensation
 	int pin;
+  DHT dht;
 };
 

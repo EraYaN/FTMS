@@ -2,7 +2,7 @@
 #include <HardwareSerial.h>
 
 SensorpHProbe::SensorpHProbe(void) 
-	: Sensor("pHProbe",pHProbe)
+	: Sensor("pHProbe",ST_pHProbe)
 {
 	pH = -1.0;
 	Calibrating = false;
@@ -10,7 +10,7 @@ SensorpHProbe::SensorpHProbe(void)
 int SensorpHProbe::Init(){
 	sensorData = "";
 	Serial3.begin(38400);
-	delay(100);
+	delayMicroseconds(10000);
 	Serial3.print("E\r");
 	Serial3.flush();	
 	Serial3.print("L1\r");
@@ -21,14 +21,20 @@ int SensorpHProbe::Init(){
 int SensorpHProbe::updateValue(double Temperature){
 	if(!Calibrating){
 		sensorData = "";
-		Serial3.print(Temperature,1);
+    Serial.println(Temperature,2);
+		Serial3.print(Temperature,2);
 		Serial3.print('\r');
-		Serial3.flush();
-		pH = Serial3.parseFloat();
+		//Serial3.flush();
+    Serial.println(Serial3.readStringUntil('\r'));
+		//pH = Serial3.parseFloat();
+    //Serial.println(pH);
+    pH = 0;
 		return 0;
 	} else {
 		return 1;
 	}
+ pH = 7;
+ return 0;
 }
 double SensorpHProbe::getpH(){
 	return pH;

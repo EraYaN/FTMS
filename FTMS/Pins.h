@@ -2,8 +2,8 @@
 #define PINS_H
 #include <Arduino.h>
 //Pin configurations
-const int SDCARD_SLAVESELECT_PIN = 4;
-const int SDCARD_SLAVESELECT_PIN_ORIG = SS; 
+const int SDCARD_SLAVESELECT_PIN = 5;
+const int SDCARD_SLAVESELECT_PIN_ORIG = 53; 
 const int DHT11_PIN = 3;
 const int ONEWIRE_PIN = 6; //DS18B20 etc. 4.7k resistor between +5V line and signal pin, for all one-wire devices. 2820B0AA0200001A
 const int SCREEN_MOSI = 48;// Used for LCD R/W pin (SW SPI)

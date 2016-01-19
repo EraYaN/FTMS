@@ -7,7 +7,7 @@ class SensorDS :
 {
 public:
 	//SensorDHT();
-	SensorDS(const char* name, int _id);
+	SensorDS(const char* name, int _id, OneWire* _oneWire);
 	~SensorDS(void);
 	int Init();
 	int updateValue();
@@ -17,6 +17,7 @@ private:
 	double Temperature;		
 	double OffsetT; //For Temperature compensation	
 	DeviceAddress address;
+  DallasTemperature ds;
 	int id;
 	int pin;
 };

@@ -8,15 +8,16 @@ void SensorDS::printAddress(DeviceAddress deviceAddress)
     Serial.print(deviceAddress[i], HEX);
   }
 }
-SensorDS::SensorDS(const char* name, int _id)
-	: Sensor(name,DS18B20)
-{
-	pin = ONEWIRE_PIN;
+SensorDS::SensorDS(const char* name, int _id, OneWire* _oneWire)
+	: Sensor(name,ST_DS18B20), ds(_oneWire)
+{ 
+  pin = ONEWIRE_PIN;
 	Temperature = -1;
 	id = _id;
 }
 int SensorDS::Init(){		
 	OffsetT = -0.5; //measured against melting water.
+  ds.begin();
 	ds.getAddress(address, id);	
 	ds.setResolution(address,11);
 	return ds.getDeviceCount() > 0;
