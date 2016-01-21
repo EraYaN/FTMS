@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FMTS-PC-Controller")]
+[assembly: AssemblyTitle("EraYaN's FTMS PC Controller")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FMTS-PC-Controller")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("EraYaN's FTMS PC Controller")]
+[assembly: AssemblyCopyright("Copyright ©  2016 Erwin de Haan")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

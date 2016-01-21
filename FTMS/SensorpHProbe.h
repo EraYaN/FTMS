@@ -15,6 +15,5 @@ private:
 	double pH;
 	bool Calibrating;
 	double Temperature; //For compensation
-	char* sensorData;
 };
 

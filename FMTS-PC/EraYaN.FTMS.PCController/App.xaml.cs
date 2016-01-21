@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FMTS_PC_Controller
+namespace EraYaN.FTMS.PCController
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

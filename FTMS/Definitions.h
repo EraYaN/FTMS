@@ -2,7 +2,8 @@
 #define DEFINITIONS_H
 /*Define shit here*/
 
-enum SensorType{
+enum SensorType : byte
+{
 	ST_Unknown,
 	ST_DHT11,
 	ST_DHT22,

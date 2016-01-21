@@ -1,0 +1,38 @@
+﻿<Window x:Class="EraYaN.FTMS.PCController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FTMS PC Controller by Erwin de Haan" Height="692" Width="918.5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch">
+            <GroupBox x:Name="groupBox" Header="Debug">
+                <StackPanel>
+                    <Button x:Name="TestButton" Content="ONBOARD__LED on" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="TestButton_Click"/>
+                    <Button x:Name="TestButtonFalse" Content="ONBOARD__LED off" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="TestButtonFalse_Click"/>
+                    <Slider x:Name="BlueLEDFrontSlider" Margin="6
+                            " HorizontalAlignment="Stretch" VerticalAlignment="Top" SmallChange="1" Maximum="255" LargeChange="16" TickPlacement="Both" TickFrequency="16" Grid.ColumnSpan="2"/>
+                    <Button x:Name="TestButtonInt16" Content="BLUE LED SLIDER UPDATE" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="TestButtonInt16_Click"/>
+                    <Button x:Name="GetFloatTestButton" Content="Get DHT__TEMPERATURE" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="GetFloatTestButton_Click"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Canvas x:Name="StateCanvas" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch"/>
+            <TextBox x:Name="ConsoleTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="FTMS Console" VerticalAlignment="Stretch"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

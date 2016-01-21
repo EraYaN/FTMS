@@ -21,8 +21,10 @@ int SensorDHT::Init(){
 	OffsetT = 0; //measured against others.
 }
 int SensorDHT::updateValue(){	
-	Humidity = dht.readHumidity();
-	Temperature = dht.readTemperature();
+	//Humidity = dht.readHumidity();
+	//Temperature = dht.readTemperature();
+  Humidity = 55.6;
+  Temperature = 22.5;
 	return 0;
 }
 double SensorDHT::getHumidity(){

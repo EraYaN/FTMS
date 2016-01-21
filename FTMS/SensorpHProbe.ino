@@ -8,7 +8,6 @@ SensorpHProbe::SensorpHProbe(void)
 	Calibrating = false;
 }
 int SensorpHProbe::Init(){
-	sensorData = "";
 	Serial3.begin(38400);
 	delayMicroseconds(10000);
 	Serial3.print("E\r");
@@ -20,13 +19,12 @@ int SensorpHProbe::Init(){
 }
 int SensorpHProbe::updateValue(double Temperature){
 	if(!Calibrating){
-		sensorData = "";
-    Serial.println(Temperature,2);
+    //Serial.println(Temperature,2);
 		Serial3.print(Temperature,2);
 		Serial3.print('\r');
-		//Serial3.flush();
-    Serial.println(Serial3.readStringUntil('\r'));
-		//pH = Serial3.parseFloat();
+		Serial3.flush();
+    //Serial.println(Serial3.readStringUntil('\r'));
+		pH = Serial3.parseFloat();
     //Serial.println(pH);
     pH = 0;
 		return 0;
@@ -43,7 +41,7 @@ bool SensorpHProbe::isCalibrating(){
 	return Calibrating;
 }
 int SensorpHProbe::Calibrate(){
-	Serial.println("Calibrating...");
+	com.DebugMessage("Calibrating...");
 	Calibrating = true;
 	frameStatusMessage("Insert the probe in the pH 7 calibration solution.");
 	delay(5000);

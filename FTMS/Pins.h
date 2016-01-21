@@ -2,6 +2,7 @@
 #define PINS_H
 #include <Arduino.h>
 //Pin configurations
+const int LED_ONBOARD = 13;
 const int SDCARD_SLAVESELECT_PIN = 5;
 const int SDCARD_SLAVESELECT_PIN_ORIG = 53; 
 const int DHT11_PIN = 3;
@@ -22,24 +23,25 @@ const int ETHERNET_INTERRUPT = 2;
 //Module A
 const int RELAY_TL1 = 23; // Day		(Amazon Day)		9000K,		All-day.
 const int RELAY_TL2 = 25; // Day		(Sylvania Golux)	8500K,		All-day.
-const int RELAY_TL3 = 27; // White	(Philips 840)		4000K,		Mid-day peak.
+const int RELAY_TL3 = 27; // White	(Philips 840)		4000K,		All-day.
 const int RELAY_TL4 = 29; // W-White (Philips 830)		3000K,		All-day.
-const int RELAY_FLORAMATE = 31;
-const int RELAY_CO2 = 33;
+const int RELAY_TL5 = 31; // White,    Mid-day peak.
+const int RELAY_FLORAMATE = 33;
 const int RELAY_PUMP_MAIN1 = 35;
 const int RELAY_PUMP_MAIN2 = 37;
 //Module B
-const int RELAY_PUMP_CO2 = 22;
-const int RELAY_AIRPUMP = 24;
-const int RELAY_TERRA_LIGHT = 26;
-const int RELAY_TERRA_HEAT = 28;
-const int RELAY_RESERVE1 = 30;
-const int RELAY_RESERVE2 = 32;
-const int RELAY_RESERVE3 = 34;
-const int RELAY_RESERVE4 = 36;
+const int RELAY_CO2 = 22;
+const int RELAY_PUMP_CO2 = 24;
+const int RELAY_AIRPUMP = 26;
+const int RELAY_TERRA_LIGHT = 28;
+const int RELAY_TERRA_HEAT = 30;
+const int RELAY_RESERVE1 = 32;
+const int RELAY_RESERVE2 = 34;
+const int RELAY_RESERVE3 = 36;
 
 //pin, mode, default
 const int pins[][3] = {
+  {LED_ONBOARD, OUTPUT, LOW},
 	{SDCARD_SLAVESELECT_PIN, OUTPUT, LOW},
 	{SDCARD_SLAVESELECT_PIN_ORIG , OUTPUT, LOW},
 	{DHT11_PIN, OUTPUT, LOW},
@@ -61,6 +63,7 @@ const int pins[][3] = {
 	{RELAY_TL2 , OUTPUT, HIGH},
 	{RELAY_TL3 , OUTPUT, HIGH},
 	{RELAY_TL4 , OUTPUT, HIGH},
+  {RELAY_TL5 , OUTPUT, HIGH},
 	{RELAY_FLORAMATE, OUTPUT, HIGH},
 	{RELAY_CO2, OUTPUT, HIGH},
 	{RELAY_PUMP_MAIN1, OUTPUT, HIGH},
@@ -71,8 +74,7 @@ const int pins[][3] = {
 	{RELAY_TERRA_HEAT, OUTPUT, HIGH},
 	{RELAY_RESERVE1, OUTPUT, HIGH},
 	{RELAY_RESERVE2, OUTPUT, HIGH},
-	{RELAY_RESERVE3, OUTPUT, HIGH},
-	{RELAY_RESERVE4, OUTPUT, HIGH}
+	{RELAY_RESERVE3, OUTPUT, HIGH}
 };
-const int pincount = 33;
+const int pincount = 34;
 #endif

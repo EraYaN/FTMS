@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Ports;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -8,6 +9,8 @@ namespace EraYaN.Serial
 {
     public class SerialInterface : ISerial, IDisposable
     {
+        const int blockLimit = 256;
+        Action kickoffRead = null;
         string port;
         int baudrate;
         SerialPort serialPort;
@@ -48,7 +51,7 @@ namespace EraYaN.Serial
             serialPort.ReceivedBytesThreshold = 1;
             serialPort.ReadTimeout = 500;
             serialPort.WriteTimeout = 500;
-            serialPort.DataReceived += serialPort_DataReceived;
+            //serialPort.DataReceived += serialPort_DataReceived;
             serialPort.ErrorReceived += serialPort_ErrorReceived;
             serialPort.PinChanged += serialPort_PinChanged;
             
@@ -77,6 +80,24 @@ namespace EraYaN.Serial
             try
             {
                 serialPort.Open();
+                byte[] buffer = new byte[blockLimit];                
+                kickoffRead = delegate {
+                    serialPort.BaseStream.BeginRead(buffer, 0, buffer.Length, delegate (IAsyncResult ar) {
+                        try
+                        {
+                            int actualLength = serialPort.BaseStream.EndRead(ar);
+                            byte[] received = new byte[actualLength];
+                            Buffer.BlockCopy(buffer, 0, received, 0, actualLength);
+                            handleSerialData(received);
+                        }
+                        catch (IOException exc)
+                        {
+                            //handleAppSerialError(exc);
+                        }
+                        kickoffRead();
+                    }, null);
+                };
+                kickoffRead();
                 return 0;
             }
             catch (IOException e)
@@ -110,11 +131,18 @@ namespace EraYaN.Serial
                 return 1;
             }
         }
-        public void SendByte(Byte data)
+        public void SendString(string data)
+        {
+            serialPort.WriteLine(data);
+        }
+        public void SendByteArray(byte[] data)
+        {
+            serialPort.Write(data, 0, data.Length);
+        }
+        public void SendByte(byte data)
         {
             byte[] buf = {data};
             serialPort.Write(buf,0,1);
-			System.Diagnostics.Debug.WriteLine("Serial byte sent: {0:X}", data);
         }
         void serialPort_PinChanged(object sender, SerialPinChangedEventArgs e)
         {
@@ -128,18 +156,23 @@ namespace EraYaN.Serial
             throw new NotImplementedException();
         }
 
-        void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        /*void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             int input = serialPort.ReadByte();
-			System.Diagnostics.Debug.WriteLine("Serial byte received: {0:X}", input);
             DataSerial((byte)input, e);           
+        }*/
+
+        void handleSerialData(byte[] data)
+        {
+            foreach (byte b in data)
+            {
+                DataSerial(b);
+            }
         }
     
-        void DataSerial(Byte b, SerialDataReceivedEventArgs e)
+        void DataSerial(byte b)
         {
-            // Do something before the event…
-            OnSerialDataChanged(new SerialDataEventArgs(b,e));
-            // or do something after the event. 
+            OnSerialDataChanged(new SerialDataEventArgs(b));
         }
 
         protected virtual void OnSerialDataChanged(SerialDataEventArgs e)
