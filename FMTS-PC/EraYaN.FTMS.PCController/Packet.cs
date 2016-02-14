@@ -71,6 +71,7 @@ namespace EraYaN.FTMS.PCController
             {
                 throw new ArgumentException("Invalid data, received protocol version unsupported.", "data");
             }
+			Version = PacketData[1];
             Command = (Command)PacketData[2];
             ID = PacketData[3];
             if (Command.HasNData())

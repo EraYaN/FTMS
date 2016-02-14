@@ -15,7 +15,8 @@ void Communication::Init() {
 }
 
 void Communication::CheckForData() {
-  iterations++;
+  if(isReceivingPacket)
+    iterations++;
   if(!Serial.available()&&iterations>MAX_ITERATIONS){
     DebugMessage("Packet receiver timed out.");
     ResetCurrentPacket();
@@ -98,7 +99,6 @@ void Communication::SetBoolean(byte id, bool val) {
   Serial.write(Command::SetBoolean);
   Serial.write(id);
   Serial.write(reinterpret_cast<byte*>(&val), sizeof(bool));
-  delete &val;
 }
 void Communication::SetInteger16(byte id, int val) {
   Serial.write(0xF0);
@@ -106,7 +106,6 @@ void Communication::SetInteger16(byte id, int val) {
   Serial.write(Command::SetInteger16);
   Serial.write(id);
   Serial.write(reinterpret_cast<byte*>(&val), sizeof(int));
-  delete &val;
 }
 void Communication::SetInteger32(byte id, long val) {
   Serial.write(0xF0);
@@ -114,7 +113,6 @@ void Communication::SetInteger32(byte id, long val) {
   Serial.write(Command::SetInteger32);
   Serial.write(id);
   Serial.write(reinterpret_cast<byte*>(&val), sizeof(long));
-  delete &val;
 }
 void Communication::SetFloat(byte id, double val) {
   Serial.write(0xF0);
@@ -122,7 +120,6 @@ void Communication::SetFloat(byte id, double val) {
   Serial.write(Command::SetFloat);
   Serial.write(id);
   Serial.write(reinterpret_cast<byte*>(&val), sizeof(double));
-  delete &val;
 }
 void Communication::SetString(byte id, String val) {
   Serial.write(0xF0);
@@ -135,7 +132,6 @@ void Communication::SetString(byte id, String val) {
   for (int i = 0; i < len; i++) {
     Serial.write(val.charAt(i));
   }
-  delete &val;
 }
 void Communication::GetBoolean(byte id) {
   Serial.write(0xF0);

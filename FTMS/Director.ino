@@ -54,6 +54,54 @@ void Director::ProcessBoolean(bool setter, byte id, bool *val) {
     case ComVars::ONBOARD_LED:
       setter ? IDFunctions::S_ONBOARD_LED(val) : IDFunctions::G_ONBOARD_LED(val);
       break;
+    case ComVars::RELAY_TL1:
+      setter ? IDFunctions::S_RELAY_TL1(val) : IDFunctions::G_RELAY_TL1(val);
+      break;
+    case ComVars::RELAY_TL2:
+      setter ? IDFunctions::S_RELAY_TL2(val) : IDFunctions::G_RELAY_TL2(val);
+      break;
+    case ComVars::RELAY_TL3:
+      setter ? IDFunctions::S_RELAY_TL3(val) : IDFunctions::G_RELAY_TL3(val);
+      break;
+    case ComVars::RELAY_TL4:
+      setter ? IDFunctions::S_RELAY_TL4(val) : IDFunctions::G_RELAY_TL4(val);
+      break;
+    case ComVars::RELAY_TL5:
+      setter ? IDFunctions::S_RELAY_TL5(val) : IDFunctions::G_RELAY_TL5(val);
+      break;
+    case ComVars::RELAY_FLORAMATE:
+      setter ? IDFunctions::S_RELAY_FLORAMATE(val) : IDFunctions::G_RELAY_FLORAMATE(val);
+      break;
+    case ComVars::RELAY_PUMP_MAIN1:
+      setter ? IDFunctions::S_RELAY_PUMP_MAIN1(val) : IDFunctions::G_RELAY_PUMP_MAIN1(val);
+      break;
+    case ComVars::RELAY_PUMP_MAIN2:
+      setter ? IDFunctions::S_RELAY_PUMP_MAIN2(val) : IDFunctions::G_RELAY_PUMP_MAIN2(val);
+      break;
+    case ComVars::RELAY_CO2:
+      setter ? IDFunctions::S_RELAY_CO2(val) : IDFunctions::G_RELAY_CO2(val);
+      break;
+    case ComVars::RELAY_PUMP_CO2:
+      setter ? IDFunctions::S_RELAY_PUMP_CO2(val) : IDFunctions::G_RELAY_PUMP_CO2(val);
+      break;
+    case ComVars::RELAY_AIRPUMP:
+      setter ? IDFunctions::S_RELAY_AIRPUMP(val) : IDFunctions::G_RELAY_AIRPUMP(val);
+      break;
+    case ComVars::RELAY_TERRA_LIGHT:
+      setter ? IDFunctions::S_RELAY_TERRA_LIGHT(val) : IDFunctions::G_RELAY_TERRA_LIGHT(val);
+      break;
+    case ComVars::RELAY_TERRA_HEAT:
+      setter ? IDFunctions::S_RELAY_TERRA_HEAT(val) : IDFunctions::G_RELAY_TERRA_HEAT(val);
+      break;
+    case ComVars::RELAY_RESERVE1:
+      setter ? IDFunctions::S_RELAY_RESERVE1(val) : IDFunctions::G_RELAY_RESERVE1(val);
+      break;
+    case ComVars::RELAY_RESERVE2:
+      setter ? IDFunctions::S_RELAY_RESERVE2(val) : IDFunctions::G_RELAY_RESERVE2(val);
+      break;
+    case ComVars::RELAY_RESERVE3:
+      setter ? IDFunctions::S_RELAY_RESERVE3(val) : IDFunctions::G_RELAY_RESERVE3(val);
+      break;
     default:
       return;
   }
@@ -66,8 +114,26 @@ void Director::ProcessInteger16(bool setter, byte id, int *val) {
     val = new int;
   }
   switch (id) {
+    case ComVars::LED_WHITE_FRONT:
+      setter ? IDFunctions::S_LED_WHITE_FRONT(val) : IDFunctions::G_LED_WHITE_FRONT(val);
+      break;
+    case ComVars::LED_WHITE_REAR:
+      setter ? IDFunctions::S_LED_WHITE_REAR(val) : IDFunctions::G_LED_WHITE_REAR(val);
+      break;
+    case ComVars::LED_RED_FRONT:
+      setter ? IDFunctions::S_LED_RED_FRONT(val) : IDFunctions::G_LED_RED_FRONT(val);
+      break;
+    case ComVars::LED_RED_REAR:
+      setter ? IDFunctions::S_LED_RED_REAR(val) : IDFunctions::G_LED_RED_REAR(val);
+      break;
     case ComVars::LED_BLUE_FRONT:
       setter ? IDFunctions::S_LED_BLUE_FRONT(val) : IDFunctions::G_LED_BLUE_FRONT(val);
+      break;
+    case ComVars::LED_BLUE_REAR:
+      setter ? IDFunctions::S_LED_BLUE_REAR(val) : IDFunctions::G_LED_BLUE_REAR(val);
+      break;
+    case ComVars::FAN_SPEED:
+      setter ? IDFunctions::S_FAN_SPEED(val) : IDFunctions::G_FAN_SPEED(val);
       break;
     default:
       return;
@@ -105,14 +171,15 @@ void Director::ProcessFloat(bool setter, byte id, double *val) {
     case ComVars::DS18B20_TEMPERATURE:
       setter ? IDFunctions::S_DS18B20_TEMPERATURE(val) : IDFunctions::G_DS18B20_TEMPERATURE(val);
       break;
-      case ComVars::PROBE_PH:
+    case ComVars::PROBE_PH:
       setter ? IDFunctions::S_PROBE_PH(val) : IDFunctions::G_PROBE_PH(val);
       break;
     default:
       return;
   }
-  if (!setter) {    
+  if (!setter) {
     com.SetFloat(id, *val);
+    delete val;
   }
 }
 void Director::ProcessString(bool setter, byte id, String *val) {

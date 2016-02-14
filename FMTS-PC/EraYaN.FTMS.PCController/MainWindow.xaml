@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
             
             <Canvas x:Name="StateCanvas" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch"/>
-            <TextBox x:Name="ConsoleTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="FTMS Console" VerticalAlignment="Stretch"/>
+            <TextBox x:Name="ConsoleTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch"/>
 
         </Grid>
 

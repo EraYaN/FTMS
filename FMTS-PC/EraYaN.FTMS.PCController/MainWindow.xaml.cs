@@ -24,7 +24,7 @@ namespace EraYaN.FTMS.PCController
 		public MainWindow()
 		{
 			InitializeComponent();
-            com = new Communication("COM4", 115200);
+            com = new Communication("COM3", 115200);
             com.PacketReceivedEvent += Com_PacketReceivedEvent;            
         }
 
@@ -77,6 +77,9 @@ namespace EraYaN.FTMS.PCController
         private void GetFloatTestButton_Click(object sender, RoutedEventArgs e)
         {
             com.GetFloat(ComVars.DHT_TEMPERATURE);
+			com.GetFloat(ComVars.DHT_HUMIDITY);
+			com.GetFloat(ComVars.DS18B20_TEMPERATURE);
+			com.GetFloat(ComVars.PROBE_PH);
         }
     }
 }

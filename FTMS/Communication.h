@@ -39,8 +39,28 @@ namespace ComVars
 const byte ONBOARD_LED = 1;
 const byte RELAY_TL1 = 2;
 const byte RELAY_TL2 = 3;
+const byte RELAY_TL3 = 4; // White  (Philips 840)   4000K,    All-day.
+const byte RELAY_TL4 = 5; // W-White (Philips 830)    3000K,    All-day.
+const byte RELAY_TL5 = 6; // White,    Mid-day peak.
+const byte RELAY_FLORAMATE = 7;
+const byte RELAY_PUMP_MAIN1 = 8;
+const byte RELAY_PUMP_MAIN2 = 9;
+const byte RELAY_CO2 = 10;
+const byte RELAY_PUMP_CO2 = 11;
+const byte RELAY_AIRPUMP = 12;
+const byte RELAY_TERRA_LIGHT = 13;
+const byte RELAY_TERRA_HEAT = 14;
+const byte RELAY_RESERVE1 = 15;
+const byte RELAY_RESERVE2 = 16;
+const byte RELAY_RESERVE3 = 17;
 //Int16s
-const byte LED_BLUE_FRONT = 40;
+const byte LED_WHITE_FRONT = 40; //LEDPWM1
+const byte LED_WHITE_REAR = 41; //LEDPWM2
+const byte LED_RED_FRONT = 42; //LEDPWM3
+const byte LED_RED_REAR = 43; //LEDPWM4
+const byte LED_BLUE_FRONT = 44; //LEDPWM5
+const byte LED_BLUE_REAR = 45; //LEDPWM6
+const byte FAN_SPEED = 46;
 //Int32s
 //const byte ONBOARD_LED = 3;
 //Floats
