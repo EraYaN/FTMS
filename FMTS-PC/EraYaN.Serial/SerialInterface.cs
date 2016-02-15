@@ -92,6 +92,7 @@ namespace EraYaN.Serial
                         }
                         catch (IOException exc)
                         {
+							//TODO Handle properly, Reset other end?
                             //handleAppSerialError(exc);
                         }
                         kickoffRead();

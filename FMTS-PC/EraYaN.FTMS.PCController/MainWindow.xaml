@@ -15,7 +15,7 @@
                     <Slider x:Name="BlueLEDFrontSlider" Margin="6
                             " HorizontalAlignment="Stretch" VerticalAlignment="Top" SmallChange="1" Maximum="255" LargeChange="16" TickPlacement="Both" TickFrequency="16" Grid.ColumnSpan="2"/>
                     <Button x:Name="TestButtonInt16" Content="BLUE LED SLIDER UPDATE" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="TestButtonInt16_Click"/>
-                    <Button x:Name="GetFloatTestButton" Content="Get DHT__TEMPERATURE" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="GetFloatTestButton_Click"/>
+                    <Button x:Name="GetFloatTestButton" Content="Get Floats" HorizontalAlignment="Stretch" Margin="6" VerticalAlignment="Top" Click="GetFloatTestButton_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
